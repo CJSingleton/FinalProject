@@ -56,5 +56,21 @@ namespace FinalProject.Controllers
         {
             return View();
         }
+        public ActionResult apiTest(string state)
+        {
+            HttpWebRequest apiRequest = WebRequest.CreateHttp("https://api.census.gov/data/2016/acs/acs1/profile?get=NAME,DP02_0001E,DP02_0002E,DP02_0003E&for=state:" + state + "&for=cd115:*");
+            apiRequest.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
+            apiRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
+            HttpWebResponse apiResponse = (HttpWebResponse)apiRequest.GetResponse();
+            if (apiResponse.StatusCode == HttpStatusCode.OK) // (== 200) if we get status of 200, things are good.
+            {
+                StreamReader responseData = new StreamReader(apiResponse.GetResponseStream());// use System.IO
+                string data = responseData.ReadToEnd(); //reads data from the response
+                JArray jsonData = JArray.Parse(data);
+                ViewBag.test1 = jsonData/*[1]*/;
+                //ViewBag.triviadate = jsonCensusData["year"];
+            }
+            return View();
+        }
     }
 }
