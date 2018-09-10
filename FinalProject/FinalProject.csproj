@@ -190,8 +190,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\UserInput.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>UserInput.Context.cs</LastGenOutput>
       <DependentUpon>UserInput.edmx</DependentUpon>
+      <LastGenOutput>UserInput.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\UserInput.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -14,7 +14,6 @@ namespace FinalProject.Models
     
     public partial class UserInput
     {
-        public string username { get; set; }
         public string name { get; set; }
         public int age { get; set; }
         public string incomerange { get; set; }
@@ -22,9 +21,9 @@ namespace FinalProject.Models
         public string city { get; set; }
         public string state { get; set; }
         public string maritalstatus { get; set; }
-        public int childrennum { get; set; }
+        public int numofchildren { get; set; }
         public string residentialstatus { get; set; }
         public int homevalue { get; set; }
-        public string collegeedu { get; set; }
+        public string collegeeducation { get; set; }
     }
 }
