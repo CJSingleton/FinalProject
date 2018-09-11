@@ -72,5 +72,13 @@ namespace FinalProject.Controllers
             }
             return View();
         }
+        public ActionResult QuestionsTemp()
+        {
+            return View();
+        }
+        public ActionResult TempOut()
+        {
+            return View();
+        }
     }
 }

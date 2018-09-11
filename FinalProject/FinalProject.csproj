@@ -242,6 +242,8 @@
     <Content Include="Views\Home\Questions.cshtml" />
     <Content Include="Views\Home\frontendtemp.cshtml" />
     <Content Include="Views\Home\apiTest.cshtml" />
+    <Content Include="Views\Home\QuestionsTemp.cshtml" />
+    <Content Include="Views\Home\TempOut.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

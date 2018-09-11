@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewBag.Title = "QuestionsTemp";
+}
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+        background-color:cornflowerblue;
+
+    }
+    .navbar {
+        margin-bottom: 20px;
+    }
+    .pop {
+        background-color: white;
+        width: 70%;
+        height: 100%;
+        border: 2px solid white;
+        border-radius: 20px;
+        box-shadow: 10px 10px;
+    }
+    .move{
+        padding-left:3%;
+    }
+.jumbotron {width: 100%; height: 100%; background-image: url('https://png.pngtree.com/thumb_back/fh260/back_pic/00/09/35/00562e22c265465.jpg'); background-size: cover; }
+</style>
+</br>
+<div class="container pop">
+    <img class="move center-block" src="https://png.pngtree.com/thumb_back/fh260/back_pic/00/09/35/00562e22c265465.jpg"/>
+
+
+    <form action="/Home/TempOut" class="text-center">
+        <h3>Select your Gender</h3>
+        <select>
+            <option name="gender" value="Female">Female</option>
+            <option name="gender" value="Male">Male</option>
+        </select>
+
+
+
+
+        <h3>Enter your Age</h3>
+        <input type="number" min="18" max="105" name="age" />
+
+
+
+        <h3>Select your State</h3>
+
+        <select name="state">
+            <option value="01">Alabama</option>
+            <option value="02">Alaska</option>
+            <option value="04">Arizona</option>
+            <option value="05">Arkansas</option>
+            <option value="06">California</option>
+            <option value="08">Colorado</option>
+            <option value="09">Connecticut</option>
+            <option value="10">Delaware</option>
+            <option value="12">Florida</option>
+            <option value="13">Georgia</option>
+            <option value="15">Hawaii</option>
+            <option value="16">Idaho</option>
+            <option value="17">Illinois</option>
+            <option value="18">Indiana</option>
+            <option value="19">Iowa</option>
+            <option value="20">Kansas</option>
+            <option value="21">Kentucky</option>
+            <option value="23">Maine</option>
+            <option value="24">Maryland</option>
+            <option value="25">Massachusetts</option>
+            <option value="26">Michigan</option>
+            <option value="27">Minnesota</option>
+            <option value="28">Mississippi</option>
+            <option value="29">Missouri</option>
+            <option value="30">Montana</option>
+            <option value="31">Nebraska</option>
+            <option value="32">Nevada</option>
+            <option value="33">New Hampshire</option>
+            <option value="34">New Jersey</option>
+            <option value="35">New Mexico</option>
+            <option value="36">New York</option>
+            <option value="37">North Carolina</option>
+            <option value="38">North Dakota</option>
+            <option value="39">Ohio</option>
+            <option value="40">Oklahoma</option>
+            <option value="41">Oregon</option>
+            <option value="42">Pennsylvania</option>
+            <option value="44">Rhode Island</option>
+            <option value="45">South Carolina</option>
+            <option value="46">South Dakota</option>
+            <option value="47">Tennessee</option>
+            <option value="48">Texas</option>
+            <option value="49">Utah</option>
+            <option value="50">Vermont</option>
+            <option value="51">Virginia</option>
+            <option value="53">Washington</option>
+            <option value="54">West Virginia</option>
+            <option value="55">Wisconsin</option>
+            <option value="56">Wyoming</option>
+            <option value="22">Louisiana</option>
+        </select>
+
+
+
+        <h3>Enter your City</h3>
+        <input type="text" name="city" />
+
+
+
+        <h3>Select Your Marital Status</h3>
+        <input type="radio" name="maritalstatus" value="single" checked> Single<br>
+        <input type="radio" name="maritalstatus" value="married"> Married<br>
+        <input type="radio" name="maritalstatus" value="divSep">Divorced/Seperated
+
+
+        <h3>Select the number of children you have</h3>
+        <select>
+            <option name="numofchildren" value="None">None</option>
+            <option name="numofchildren" value="1">1</option>
+            <option name="numofchildren" value="2">2</option>
+            <option name="numofchildren" value="3">3</option>
+            <option name="numofchildren" value="4">4</option>
+            <option name="numofchildren" value="5+">5+</option>
+        </select>
+
+
+        <h3>Select your highest level of education</h3>
+        <select>
+            <option name="collegeeducation" value="highGrad">Highschool Graduate</option>
+            <option name="collegeeducation" value="some">Some Highschool</option>
+            <option name="collegeeducation" value="someCollege">Some College</option>
+            <option name="collegeeducation" value="bachelor">Bachelors</option>
+            <option name="collegeeducation" value="masters">Masters</option>
+            <option name="collegeeducation" value="doctorate">Doctorate</option>
+        </select>
+
+        <h3>Select Your Level of Income</h3>
+
+        <input name="incomerange" type="radio" value="income0" checked> $0-$24,999
+        <br>
+        <input name="incomerange" type="radio" value="income1"> $25,000-$50,000
+        <br>
+        <input name="incomerange" type="radio" value="income2"> $50,000-$100,000
+        <br>
+        <input name="incomerange" type="radio" value="income3"> More than $100,000
+
+        <h3>Do you rent or own?</h3>
+        <input type="radio" name="residentialstatus" value="own" checked> Own<br>
+        <input type="radio" name="residentialstatus" value="rent"> Rent<br>
+        <input type="radio" name="residentialstatus" value="par1"> I live with my parents<br>
+
+        <h3>Estimated home value</h3>
+        <input type="radio" name="homevalue" value="$100,000-$149,999" checked> $100,000-$149,999<br>
+        <input type="radio" name="homevalue" value="$150,000-$199,999"> $150,000-$199,999<br>
+        <input type="radio" name="homevalue" value="$200,000-$249,999"> $200,000-$249,999<br>
+
+        <input type="submit" name="Submit" />
+        </br>
+    </form>
+</div>
