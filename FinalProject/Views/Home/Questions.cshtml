@@ -4,22 +4,20 @@
 <br />
 <br />
 <h3>Select your Gender</h3>
-<form>
+<form action="/Input/SaveInput">
     <select>
         <option value="Female">Female</option>
         <option value="Male">Male</option>
     </select>
-    <input type="submit" value="Submit" />
-</form>
 
-<h3>Enter your Age</h3>
-<form>
+
+    <h3>Enter your Age</h3>
+
     <input type="number" min="18" max="105" name="Age" />
-    <input type="submit" value="Submit" />
-</form>
 
-<h3>Select your State</h3>
-<form action="/Home/apiTest">
+
+    <h3>Select your State</h3>
+
     <select name="state">
         <option value="01">Alabama</option>
         <option value="02">Alaska</option>
@@ -72,27 +70,21 @@
         <option value="56">Wyoming</option>
         <option value="22">Louisiana</option>
     </select>
-    <input type="submit" value="Submit" />
-</form>
 
-<h3>Enter your City</h3>
-<form>
+
+
+    <h3>Enter your City</h3>
     <input type="text" name="City" />
-    <input type="submit" value="Submit" />
-</form>
 
 
-<h3>Select Your Marital Status</h3>
-<form>
-    <form>
-        <input type="radio" name="maritalStatus" value="single" checked> Single<br>
-        <input type="radio" name="maritalStatus" value="married"> Married<br>
-        <input type="radio" name="maritalStatus" value="divSep">Divorced/Seperated
-    </form>
-</form>
 
-<h3>Select the number of children you have</h3>
-<form>
+    <h3>Select Your Marital Status</h3>
+    <input type="radio" name="maritalStatus" value="single" checked> Single<br>
+    <input type="radio" name="maritalStatus" value="married"> Married<br>
+    <input type="radio" name="maritalStatus" value="divSep">Divorced/Seperated
+
+
+    <h3>Select the number of children you have</h3>
     <select>
         <option value="None">None</option>
         <option value="1">1</option>
@@ -101,11 +93,9 @@
         <option value="4">4</option>
         <option value="5+">5+</option>
     </select>
-    <input type="submit" value="Submit" />
-</form>
 
-<h3>Select your highest level of education</h3>
-<form>
+
+    <h3>Select your highest level of education</h3>
     <select>
         <option value="highGrad">Highschool Graduate</option>
         <option value="some">Some Highschool</option>
@@ -114,29 +104,25 @@
         <option value="masters">Masters</option>
         <option value="doctorate">Doctorate</option>
     </select>
-    <input type="submit" value="Submit" />
+
+    <h3>Select Your Level of Income</h3>
+
+    <input type="radio" name="income" value="income0" checked> $0-$24,999
+    <br>
+    <input type="radio" name="income" value="income1"> $25,000-$50,000
+    <br>
+    <input type="radio" name="income" value="income2"> $50,000-$100,000
+    <br>
+    <input type="radio" name="income" value="income3"> More than $100,000
+
+    <h3>Do you rent or own?</h3>
+    <input type="radio" name="house1" value="own" checked> Own<br>
+    <input type="radio" name="house1" value="rent"> Rent<br>
+    <input type="radio" name="house1" value="par1"> I live with my parents<br>
+
+    <input type="submit" name="Submit" />
 </form>
-
-<h3>Select Your Level of Income</h3>
-<form>
-    <form>
-        <input type="radio" name="income" value="income0" checked> $0-$24,999<br>
-        <input type="radio" name="income" value="income1"> $25,000-$50,000<br>
-        <input type="radio" name="income" value="income2"> $50,000-$100,000<br>
-        <input type="radio" name="income" value="income3"> More than $100,000
-    </form>
-</form>
-
-<h3>Do you rent or own?</h3>
-<form>
-    <form>
-        <input type="radio" name="income" value="own" checked> Own<br>
-        <input type="radio" name="income" value="rent"> Rent<br>
-        <input type="radio" name="income" value="par1"> I live with my parents<br>
-    </form>
-</form>
-
-
+<br />
 <br />
 <br />
 <br />
