@@ -3,17 +3,21 @@
 }
 <br />
 <br />
+<h3>Enter your Name</h3>
+<input type="text" name="name" />
+<br />
+
 <h3>Select your Gender</h3>
 <form action="/Input/SaveInput">
     <select>
-        <option value="Female">Female</option>
-        <option value="Male">Male</option>
+        <option name="gender" value="Female">Female</option>
+        <option name="gender" value="Male">Male</option>
     </select>
 
 
     <h3>Enter your Age</h3>
 
-    <input type="number" min="18" max="105" name="Age" />
+    <input type="number" min="18" max="105" name="age" />
 
 
     <h3>Select your State</h3>
@@ -74,51 +78,56 @@
 
 
     <h3>Enter your City</h3>
-    <input type="text" name="City" />
+    <input type="text" name="city" />
 
 
 
     <h3>Select Your Marital Status</h3>
-    <input type="radio" name="maritalStatus" value="single" checked> Single<br>
-    <input type="radio" name="maritalStatus" value="married"> Married<br>
-    <input type="radio" name="maritalStatus" value="divSep">Divorced/Seperated
+    <input type="radio" name="maritalstatus" value="single" checked> Single<br>
+    <input type="radio" name="maritalstatus" value="married"> Married<br>
+    <input type="radio" name="maritalstatus" value="divSep">Divorced/Seperated
 
 
     <h3>Select the number of children you have</h3>
     <select>
-        <option value="None">None</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5+">5+</option>
+        <option name="numofchildren" value="None">None</option>
+        <option name="numofchildren" value="1">1</option>
+        <option name="numofchildren" value="2">2</option>
+        <option name="numofchildren" value="3">3</option>
+        <option name="numofchildren" value="4">4</option>
+        <option name="numofchildren" value="5+">5+</option>
     </select>
 
 
     <h3>Select your highest level of education</h3>
     <select>
-        <option value="highGrad">Highschool Graduate</option>
-        <option value="some">Some Highschool</option>
-        <option value="someCollege">Some College</option>
-        <option value="bachelor">Bachelors</option>
-        <option value="masters">Masters</option>
-        <option value="doctorate">Doctorate</option>
+        <option name="collegeeducation" value="highGrad">Highschool Graduate</option>
+        <option name="collegeeducation" value="some">Some Highschool</option>
+        <option name="collegeeducation" value="someCollege">Some College</option>
+        <option name="collegeeducation" value="bachelor">Bachelors</option>
+        <option name="collegeeducation" value="masters">Masters</option>
+        <option name="collegeeducation" value="doctorate">Doctorate</option>
     </select>
 
     <h3>Select Your Level of Income</h3>
 
-    <input type="radio" name="income" value="income0" checked> $0-$24,999
+    <input name="incomerange" type="radio" value="income0" checked> $0-$24,999
     <br>
-    <input type="radio" name="income" value="income1"> $25,000-$50,000
+    <input name="incomerange" type="radio" value="income1"> $25,000-$50,000
     <br>
-    <input type="radio" name="income" value="income2"> $50,000-$100,000
+    <input name="incomerange" type="radio" value="income2"> $50,000-$100,000
     <br>
-    <input type="radio" name="income" value="income3"> More than $100,000
+    <input name="incomerange" type="radio" value="income3"> More than $100,000
 
     <h3>Do you rent or own?</h3>
-    <input type="radio" name="house1" value="own" checked> Own<br>
-    <input type="radio" name="house1" value="rent"> Rent<br>
-    <input type="radio" name="house1" value="par1"> I live with my parents<br>
+    <input type="radio" name="residentialstatus" value="own" checked> Own<br>
+    <input type="radio" name="residentialstatus" value="rent"> Rent<br>
+    <input type="radio" name="residentialstatus" value="par1"> I live with my parents<br>
+
+    <h3>Estimated home value</h3>
+    <input type="radio" name="homevalue" value="$100,000-$149,999" checked> $100,000-$149,999<br>
+    <input type="radio" name="homevalue" value="$150,000-$199,999"> $150,000-$199,999<br>
+    <input type="radio" name="homevalue" value="$200,000-$249,999"> $200,000-$249,999<br>
 
     <input type="submit" name="Submit" />
 </form>
