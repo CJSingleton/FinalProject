@@ -4,11 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HowsMyLifeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HowsMyLifeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="UserInput">
           <Key>
-            <PropertyRef Name="name" />
+            <PropertyRef Name="userid" />
           </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="age" Type="int" Nullable="false" />
           <Property Name="incomerange" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -24,30 +25,30 @@
         <EntityContainer Name="HowsMyLifeModelStoreContainer">
           <EntitySet Name="UserInput" EntityType="Self.UserInput" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HowsMyLifeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="HowsLifeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserInputs" EntityType="HowsMyLifeModel.UserInput" />
+        </EntityContainer>
         <EntityType Name="UserInput">
           <Key>
-            <PropertyRef Name="name" />
+            <PropertyRef Name="userid" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="age" Type="Int32" Nullable="false" />
-          <Property Name="incomerange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="maritalstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="numofchildren" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="residentialstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="homevalue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="collegeeducation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="incomerange" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="maritalstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numofchildren" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="residentialstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homevalue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="collegeeducation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="HowsLifeEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="UserInputs" EntityType="Self.UserInput" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -57,17 +58,18 @@
           <EntitySetMapping Name="UserInputs">
             <EntityTypeMapping TypeName="HowsMyLifeModel.UserInput">
               <MappingFragment StoreEntitySet="UserInput">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="age" ColumnName="age" />
-                <ScalarProperty Name="incomerange" ColumnName="incomerange" />
-                <ScalarProperty Name="gender" ColumnName="gender" />
-                <ScalarProperty Name="city" ColumnName="city" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="maritalstatus" ColumnName="maritalstatus" />
-                <ScalarProperty Name="numofchildren" ColumnName="numofchildren" />
-                <ScalarProperty Name="residentialstatus" ColumnName="residentialstatus" />
-                <ScalarProperty Name="homevalue" ColumnName="homevalue" />
                 <ScalarProperty Name="collegeeducation" ColumnName="collegeeducation" />
+                <ScalarProperty Name="homevalue" ColumnName="homevalue" />
+                <ScalarProperty Name="residentialstatus" ColumnName="residentialstatus" />
+                <ScalarProperty Name="numofchildren" ColumnName="numofchildren" />
+                <ScalarProperty Name="maritalstatus" ColumnName="maritalstatus" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="incomerange" ColumnName="incomerange" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

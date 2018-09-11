@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="af7028bda5b54c7489e69d8abf33fced" Name="Diagram1">
-        <EntityTypeShape EntityType="HowsMyLifeModel.UserInput" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HowsMyLifeModel.UserInput" Width="1.5" PointX="2.25" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

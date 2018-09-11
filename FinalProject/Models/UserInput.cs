@@ -14,6 +14,7 @@ namespace FinalProject.Models
     
     public partial class UserInput
     {
+        public int userid { get; set; }
         public string name { get; set; }
         public int age { get; set; }
         public string incomerange { get; set; }
