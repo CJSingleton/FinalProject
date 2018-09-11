@@ -169,23 +169,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserInput.Context.cs">
+    <Compile Include="Models\HowsLife.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UserInput.Context.tt</DependentUpon>
+      <DependentUpon>HowsLife.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HowsLife.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HowsLife.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HowsLife.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HowsLife.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\UserInput.cs">
-      <DependentUpon>UserInput.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserInput.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserInput.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserInput1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>UserInput.tt</DependentUpon>
+      <DependentUpon>HowsLife.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -198,27 +198,27 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\UserInput.Context.tt">
+    <Content Include="Models\HowsLife.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UserInput.edmx</DependentUpon>
-      <LastGenOutput>UserInput.Context.cs</LastGenOutput>
+      <DependentUpon>HowsLife.edmx</DependentUpon>
+      <LastGenOutput>HowsLife.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\UserInput.tt">
+    <Content Include="Models\HowsLife.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UserInput.edmx</DependentUpon>
-      <LastGenOutput>UserInput1.cs</LastGenOutput>
+      <DependentUpon>HowsLife.edmx</DependentUpon>
+      <LastGenOutput>HowsLife.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\UserInput.edmx">
+    <EntityDeploy Include="Models\HowsLife.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UserInput.Designer.cs</LastGenOutput>
+      <LastGenOutput>HowsLife.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\UserInput.edmx.diagram">
-      <DependentUpon>UserInput.edmx</DependentUpon>
+    <Content Include="Models\HowsLife.edmx.diagram">
+      <DependentUpon>HowsLife.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

@@ -13,11 +13,11 @@ namespace FinalProject.Controllers
     {
         public ActionResult SaveInput(UserInput userInput)
         {
-            HowsMyLifeEntities ORM = new HowsMyLifeEntities();
+            HowsLifeEntities ORM = new HowsLifeEntities();
 
             ORM.UserInputs.Add(userInput);
             ORM.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("../Home/Index");
         }
     }
 }

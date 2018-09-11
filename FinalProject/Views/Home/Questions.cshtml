@@ -3,15 +3,16 @@
 }
 <br />
 <br />
-<h3>Enter your Name</h3>
-<input type="text" name="name" />
-<br />
+<form action="~/Input/SaveInput">
+    <h3>Enter your Name</h3>
+    <input type="text" name="name" />
+    <br />
 
-<h3>Select your Gender</h3>
-<form action="/Input/SaveInput">
-    <select>
-        <option name="gender" value="Female">Female</option>
-        <option name="gender" value="Male">Male</option>
+    <h3>Select your Gender</h3>
+
+    <select name="gender">
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
     </select>
 
 
@@ -80,8 +81,6 @@
     <h3>Enter your City</h3>
     <input type="text" name="city" />
 
-
-
     <h3>Select Your Marital Status</h3>
     <input type="radio" name="maritalstatus" value="single" checked> Single<br>
     <input type="radio" name="maritalstatus" value="married"> Married<br>
@@ -89,24 +88,24 @@
 
 
     <h3>Select the number of children you have</h3>
-    <select>
-        <option name="numofchildren" value="None">None</option>
-        <option name="numofchildren" value="1">1</option>
-        <option name="numofchildren" value="2">2</option>
-        <option name="numofchildren" value="3">3</option>
-        <option name="numofchildren" value="4">4</option>
-        <option name="numofchildren" value="5+">5+</option>
+    <select name="numofchildren">
+        <option value="None">None</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5+">5+</option>
     </select>
 
 
     <h3>Select your highest level of education</h3>
-    <select>
-        <option name="collegeeducation" value="highGrad">Highschool Graduate</option>
-        <option name="collegeeducation" value="some">Some Highschool</option>
-        <option name="collegeeducation" value="someCollege">Some College</option>
-        <option name="collegeeducation" value="bachelor">Bachelors</option>
-        <option name="collegeeducation" value="masters">Masters</option>
-        <option name="collegeeducation" value="doctorate">Doctorate</option>
+    <select name="collegeeducation">
+        <option value="highGrad">Highschool Graduate</option>
+        <option value="some">Some Highschool</option>
+        <option value="someCollege">Some College</option>
+        <option value="bachelor">Bachelors</option>
+        <option value="masters">Masters</option>
+        <option value="doctorate">Doctorate</option>
     </select>
 
     <h3>Select Your Level of Income</h3>

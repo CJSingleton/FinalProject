@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8c4da01d4b3e4b3fa07568a8d5c76531" Name="Diagram1">
+      <Diagram DiagramId="af7028bda5b54c7489e69d8abf33fced" Name="Diagram1">
         <EntityTypeShape EntityType="HowsMyLifeModel.UserInput" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
