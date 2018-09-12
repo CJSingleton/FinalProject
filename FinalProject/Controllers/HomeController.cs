@@ -121,6 +121,7 @@ namespace FinalProject.Controllers
                 ViewBag.test1 = Convert.ToString(listy[1][0]);
                // List<string> listofIncome = listy.Where(x => !(x == null ||  x == listy[listy.Count -1])).ToList();
 
+
                 double Less10 = Convert.ToDouble(listy[1][1]);
                 ViewBag.Less10 = Less10;
                 double to14 = Convert.ToDouble(listy[1][2]);
