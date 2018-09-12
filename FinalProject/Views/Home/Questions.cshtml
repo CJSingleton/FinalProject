@@ -5,14 +5,14 @@
 <br />
 <form action="~/Input/SaveInput">
     <h3>Enter your Name</h3>
-    <input type="text"([A-Z][a-z]{1,}) name="name" />
+    <input type="text" ([A-Z][a-z]{1,}) name="name" />
     <br />
 
     <h3>Select your Gender</h3>
 
     <select name="gender">
-        <option value="Female">Female</option>
-        <option value="Male">Male</option>
+        <option value="DP05_0003E">Female</option>
+        <option value="DP05_0002E">Male</option>
     </select>
 
 
@@ -82,19 +82,20 @@
     <input type="text" name="city" />
 
     <h3>Select Your Marital Status</h3>
-    <input type="radio" name="maritalstatus" value="single" checked> Single<br>
-    <input type="radio" name="maritalstatus" value="married"> Married<br>
-    <input type="radio" name="maritalstatus" value="divSep">Divorced/Seperated
+    <input type="radio" name="maritalstatus" value="No" checked> Single<br>
+    <input type="radio" name="maritalstatus" value="Yes"> Married<br>
+    <input type="radio" name="maritalstatus" value="No">Divorced/Seperated
 
+    <h3>Are you currently employed?</h3>
+    <select name="employed">
+        <option value="DP03_0005E">No</option>
+        <option value="DP03_0004E">Yes</option>
+    </select>
 
-    <h3>Select the number of children you have</h3>
+    <h3>Do you have children?</h3>
     <select name="numofchildren">
-        <option value="None">None</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5+">5+</option>
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
     </select>
 
 
@@ -109,14 +110,25 @@
     </select>
 
     <h3>Select Your Level of Income</h3>
-
-    <input name="incomerange" type="radio" value="income0" checked> $0-$24,999
+    <input name="incomerange" type="radio" value="DP03_0052E"> Less than $10K
     <br>
-    <input name="incomerange" type="radio" value="income1"> $25,000-$50,000
+    <input name="incomerange" type="radio"value="DP03_0053E"> $10,000-$14,999
     <br>
-    <input name="incomerange" type="radio" value="income2"> $50,000-$100,000
+    <input name="incomerange" type="radio" value="DP03_0054E"> $15,000-$24,999
     <br>
-    <input name="incomerange" type="radio" value="income3"> More than $100,000
+    <input name="incomerange" type="radio" value="DP03_0055E"> $25,000-$34,999
+    <br>
+    <input name="incomerange" type="radio" value="DP03_0056E"checked> $35,000-$49,999
+    <br>
+    <input name="incomerange" type="radio" value="DP03_0057E"> $50,000-$74,999
+    <br>
+    <input name="incomerange" type="radio" value="DP03_0058E"> $75,000-$99,999
+    <br>
+    <input name="incomerange" type="radio" value="DP03_0059E"> $100,000-$149,999
+    <br>
+    <input name="incomerange" type="radio" value="DP03_0060E"> $150,000-$199,999
+    <br>
+    <input name="incomerange" type="radio" value="DP03_0061E"> More than $200K +
 
     <h3>Do you rent or own?</h3>
     <input type="radio" name="residentialstatus" value="own" checked> Own<br>
