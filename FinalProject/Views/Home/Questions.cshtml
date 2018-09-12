@@ -16,9 +16,19 @@
     </select>
 
 
-    <h3>Enter your Age</h3>
+    <h3>Select your Age</h3>
+    <select name="age">
+        <option value="DP05_008E">18-24</option>
+        <option value="DP05_009E">25-34</option>
+        <option value="DP05_010E">35-44</option>
+        <option value="DP05_011E">45-54</option>
+        <option value="DP05_012E">55-59</option>
+        <option value="DP05_013E">60-64</option>
+        <option value="DP05_014E">65-74</option>
+        <option value="DP05_015E">75-84</option>
+        <option value="DP05_016E">85 and older</option>
+    </select>
 
-    <input type="number" min="18" max="105" name="age" />
 
     <h3>Select your State</h3>
 
@@ -81,9 +91,9 @@
     <input type="text" name="city" pattern="[a-zA-Z]+(?:[ '-][a-zA-Z]+)*" required/>
 
     <h3>Select Your Marital Status</h3>
-    <input type="radio" name="maritalstatus" value="No" checked> Single<br>
-    <input type="radio" name="maritalstatus" value="Yes"> Married<br>
-    <input type="radio" name="maritalstatus" value="No">Divorced/Seperated
+    <input type="radio" name="maritalstatus" value="DP02_0010E" checked> Single<br>
+    <input type="radio" name="maritalstatus" value="DP02_0004E"> Married<br>
+    <input type="radio" name="maritalstatus" value="DP02_0010E">Divorced/Seperated
 
     <h3>Are you currently employed?</h3>
     <select name="employed">
@@ -100,24 +110,23 @@
 
     <h3>Select your highest level of education</h3>
     <select name="collegeeducation">
-        <option value="highGrad">Highschool Graduate</option>
-        <option value="some">Some Highschool</option>
-        <option value="someCollege">Some College</option>
-        <option value="bachelor">Bachelors</option>
-        <option value="masters">Masters</option>
-        <option value="doctorate">Doctorate</option>
+        <option value="DP02_0060E">Some Highschool</option>
+        <option value="DP02_0061E">Highschool Graduate</option>
+        <option value="DP02_0062E">Some College</option>
+        <option value="DP02_0064E">Bachelors</option>
+        <option value="DP02_0065E">Graduate</option>
     </select>
 
     <h3>Select Your Level of Income</h3>
     <input name="incomerange" type="radio" value="DP03_0052E"> Less than $10K
     <br>
-    <input name="incomerange" type="radio"value="DP03_0053E"> $10,000-$14,999
+    <input name="incomerange" type="radio" value="DP03_0053E"> $10,000-$14,999
     <br>
     <input name="incomerange" type="radio" value="DP03_0054E"> $15,000-$24,999
     <br>
     <input name="incomerange" type="radio" value="DP03_0055E"> $25,000-$34,999
     <br>
-    <input name="incomerange" type="radio" value="DP03_0056E"checked> $35,000-$49,999
+    <input name="incomerange" type="radio" value="DP03_0056E" checked> $35,000-$49,999
     <br>
     <input name="incomerange" type="radio" value="DP03_0057E"> $50,000-$74,999
     <br>
@@ -139,7 +148,7 @@
     <input type="radio" name="homevalue" value="$150,000-$199,999"> $150,000-$199,999<br>
     <input type="radio" name="homevalue" value="$200,000-$249,999"> $200,000-$249,999<br>
     <br />
-    <input type="submit" name="Submit"  />
+    <input type="submit" name="Submit" />
 </form>
 <br />
 <br />
