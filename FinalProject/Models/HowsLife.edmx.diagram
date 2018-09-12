@@ -7,6 +7,7 @@
       <Diagram DiagramId="af7028bda5b54c7489e69d8abf33fced" Name="Diagram1">
 <<<<<<< HEAD
         <EntityTypeShape EntityType="HowsMyLifeModel.UserInput" Width="1.5" PointX="2.25" PointY="0.5" />
+        <EntityTypeShape EntityType="HowsMyLifeModel.sysdiagram" Width="1.5" PointX="6.1615596051148884" PointY="7.2776203636441474" />
 =======
         
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; Representing Data on Client Front

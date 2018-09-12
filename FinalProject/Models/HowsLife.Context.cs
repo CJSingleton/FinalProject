@@ -26,5 +26,6 @@ namespace FinalProject.Models
         }
     
         public virtual DbSet<UserInput> UserInputs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

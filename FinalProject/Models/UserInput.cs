@@ -26,5 +26,9 @@ namespace FinalProject.Models
         public string residentialstatus { get; set; }
         public string homevalue { get; set; }
         public string collegeeducation { get; set; }
+        public bool haschildren { get; set; }
+        public string grosserent { get; set; }
+        public string mortgagecost { get; set; }
+        public string monthlyexpenses { get; set; }
     }
 }
