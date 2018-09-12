@@ -6,7 +6,6 @@ using System.Net.Http;
 using System.Web.Http;
 using FinalProject.Models;
 using System.Web.Mvc;
-using System;
 
 namespace FinalProject.Controllers
 {
@@ -15,14 +14,9 @@ namespace FinalProject.Controllers
         public ActionResult SaveInput(UserInput userInput)
         {
             HowsLifeEntities ORM = new HowsLifeEntities();
-
-            List<UserInput> userInputs = ORM.UserInputs.ToList();
-            UserInput latestUserInput = userInputs[userInputs.Count - 1];
-            int userIdNum = latestUserInput.userid;
-
             ORM.UserInputs.Add(userInput);
             ORM.SaveChanges();
-            return RedirectToAction("../Home/Index");
+            return View("../Home/Index");
         }
     }
 }

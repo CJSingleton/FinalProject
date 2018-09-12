@@ -5,23 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="HowsMyLifeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="UserInput">
           <Key>
             <PropertyRef Name="userid" />
           </Key>
           <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="age" Type="int" Nullable="false" />
+          <Property Name="age" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="incomerange" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="gender" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -35,7 +25,6 @@
           <Property Name="monthlyexpenses" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="HowsMyLifeModelStoreContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInput" EntityType="Self.UserInput" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -44,7 +33,6 @@
       <Schema Namespace="HowsMyLifeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="HowsLifeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="UserInputs" EntityType="HowsMyLifeModel.UserInput" />
-          <EntitySet Name="sysdiagrams" EntityType="HowsMyLifeModel.sysdiagram" />
         </EntityContainer>
         <EntityType Name="UserInput">
           <Key>
@@ -52,30 +40,18 @@
           </Key>
           <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="age" Type="Int32" Nullable="false" />
+          <Property Name="age" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="incomerange" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="city" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="state" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="maritalstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="numofchildren" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="residentialstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="homevalue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="collegeeducation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="haschildren" Type="Boolean" Nullable="false" />
+          <Property Name="residentialstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="collegeeducation" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="grosserent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="mortgagecost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="monthlyexpenses" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -89,9 +65,9 @@
                 <ScalarProperty Name="monthlyexpenses" ColumnName="monthlyexpenses" />
                 <ScalarProperty Name="mortgagecost" ColumnName="mortgagecost" />
                 <ScalarProperty Name="grosserent" ColumnName="grosserent" />
-                <ScalarProperty Name="haschildren" ColumnName="haschildren" />
                 <ScalarProperty Name="collegeeducation" ColumnName="collegeeducation" />
                 <ScalarProperty Name="residentialstatus" ColumnName="residentialstatus" />
+                <ScalarProperty Name="haschildren" ColumnName="haschildren" />
                 <ScalarProperty Name="maritalstatus" ColumnName="maritalstatus" />
                 <ScalarProperty Name="state" ColumnName="state" />
                 <ScalarProperty Name="city" ColumnName="city" />
@@ -100,17 +76,6 @@
                 <ScalarProperty Name="age" ColumnName="age" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="userid" ColumnName="userid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="HowsMyLifeModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

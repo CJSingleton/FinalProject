@@ -16,17 +16,15 @@ namespace FinalProject.Models
     {
         public int userid { get; set; }
         public string name { get; set; }
-        public int age { get; set; }
+        public string age { get; set; }
         public string incomerange { get; set; }
         public string gender { get; set; }
         public string city { get; set; }
         public string state { get; set; }
         public string maritalstatus { get; set; }
-        public string numofchildren { get; set; }
-        public string residentialstatus { get; set; }
-        public string homevalue { get; set; }
-        public string collegeeducation { get; set; }
         public bool haschildren { get; set; }
+        public string residentialstatus { get; set; }
+        public string collegeeducation { get; set; }
         public string grosserent { get; set; }
         public string mortgagecost { get; set; }
         public string monthlyexpenses { get; set; }
