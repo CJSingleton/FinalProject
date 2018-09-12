@@ -79,7 +79,6 @@ namespace FinalProject.Controllers
         public ActionResult Questions()
         {
             ViewBag.Message = "Your form page.";
-
             return View();
         }
         public ActionResult frontendtemp()
