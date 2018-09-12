@@ -25,23 +25,23 @@
             {
                 theme: "theme2",
                 title: {
-                    text: "Income in the state of _______"
+                    text: "Income in the state of @ViewBag.test1"
                 },
                 data: [
                     {
                         type: "pie",
                         showInLegend: true,
                         toolTipContent: "{y} - #percent %",
-                        yValueFormatString: "0.00 %",
+                        yValueFormatString: "0.###",
                         legendText: "{indexLabel}",
                         dataPoints: [
-                            { y: 14.2857142857, indexLabel: "10,000  -14,000" },
-                            { y: 14.2857142857, indexLabel: "15,000 - 20,000" },
-                            { y: 14.2857142857, indexLabel: "20,000 - 35,000" },
-                            { y: 14.2857142857, indexLabel: "40,000 - 60,000" },
-                            { y: 14.2857142857, indexLabel: "70,000 - 150,000" },
-                            { y: 14.2857142857, indexLabel: "150,000 - 180,000" },
-                            { y: 14.2857142857, indexLabel: "250,000 - more" }
+                            { y: @ViewBag.Less10, indexLabel: "10,000  -14,000" },
+                            { y: @ViewBag.to14, indexLabel: "15,000 - 20,000" },
+                            { y: @ViewBag.to24, indexLabel: "20,000 - 35,000" },
+                            { y: @ViewBag.to34, indexLabel: "40,000 - 60,000" },
+                            { y: @ViewBag.to49, indexLabel: "70,000 - 150,000" },
+                            { y: @ViewBag.to74, indexLabel: "150,000 - 180,000" },
+                            { y: @ViewBag.to99 +@ViewBag.to149+@ViewBag.to199, indexLabel: "250,000 - more" }
                         ]
                     }
                 ]
@@ -84,7 +84,7 @@
     }
 </script>
 
-<h2> TempOut</h2>
+<h2>@ViewBag.</h2>
 
 <p>If the user is in a good or on par spot in life</p>
 <div class="w3-border">

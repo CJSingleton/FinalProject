@@ -82,9 +82,48 @@ namespace FinalProject.Controllers
         {
             return View();
         }
-        public ActionResult TempOut()
+        public ActionResult TempOut(string state)
         {
+            //apis for income
+            HttpWebRequest apiRequest = WebRequest.CreateHttp("https://api.census.gov/data/2016/acs/acs1/profile?get=NAME,DP03_0052PE,DP03_0053PE,DP03_0054PE,DP03_0055PE,DP03_0056PE,DP03_0057PE,DP03_0058PE,DP03_0059PE,DP03_0060PE,DP03_0061PE&for=state:" + state);
+            apiRequest.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
+            apiRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
+            HttpWebResponse apiResponse = (HttpWebResponse)apiRequest.GetResponse();
+            if (apiResponse.StatusCode == HttpStatusCode.OK) // (== 200) if we get status of 200, things are good.
+            {
+                StreamReader responseData = new StreamReader(apiResponse.GetResponseStream());// use System.IO
+                string data = responseData.ReadToEnd(); //reads data from the response
+                JArray jsonData = JArray.Parse(data);
+                List<JToken> listy = jsonData.ToList();
+                ViewBag.test1 = Convert.ToString(listy[1][0]);
+                List<string> listofIncome = listy.Where(x => !(x == null ||  x == listy[listy.Count -1])).ToList();
+
+                double Less10 = Convert.ToDouble(listy[1][1]);
+                ViewBag.Less10 = Less10;
+                double to14 = Convert.ToDouble(listy[1][2]);
+                ViewBag.to14 = to14;
+                double to24 = Convert.ToDouble(listy[1][3]);
+                ViewBag.to24 = to24;
+                double to34 = Convert.ToDouble(listy[1][4]);
+                ViewBag.to34 = to34;
+                double to49 = Convert.ToDouble(listy[1][5]);
+                ViewBag.to49 = to49;
+                double to74 = Convert.ToDouble(listy[1][6]);
+                ViewBag.to74 = to74;
+                double to99 = Convert.ToDouble(listy[1][7]);
+                ViewBag.to99 = to99;
+                double to149 = Convert.ToDouble(listy[1][8]);
+                ViewBag.to149 = to149;
+                double to199 = Convert.ToDouble(listy[1][9]);
+                ViewBag.to199 = to199;
+                ////ViewBag.triviadate = jsonCensusData["year"];
+            }
             return View();
+        }
+
+        private string JsonConvert(JToken jToken)
+        {
+            throw new NotImplementedException();
         }
     }
 }
