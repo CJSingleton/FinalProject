@@ -1,9 +1,10 @@
-
 ﻿@{
     ViewBag.Title = "Home Page";
 }
 
 <br />
+
+string UID = User.Identity.GetUserID();
 
 @*<form action="/Home/GetStateInfo">
         <input type="text" name="state" />
@@ -13,7 +14,7 @@
 @ViewBag.test1
 
 @*<ul>
-    <li>Total households: @ViewBag.test1[0]</li>
-    <li>Total households with families: @ViewBag.test1[1]</li>
-    <li>Total households with families and children: @ViewBag.test1[2]</li>
-</ul>*@
+        <li>Total households: @ViewBag.test1[0]</li>
+        <li>Total households with families: @ViewBag.test1[1]</li>
+        <li>Total households with families and children: @ViewBag.test1[2]</li>
+    </ul>*@

@@ -1,12 +1,10 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "PresentInput";
 }
-
 <h2>SaveInput</h2>
 <ul>
-    <li>@ViewBag.userInput[0].incomerange</li>
-    <li>@ViewBag.userInput[0].age</li>
-    <li>@ViewBag.userInput[0].state</li>
-    <li>@ViewBag.userInput[0].gender</li>
+    <li>Income Bracket Code: @ViewBag.userInput.incomerange</li>
+    <li>Age Bracket: @ViewBag.userInput.age</li>
+    <li>State Code: @ViewBag.userInput.state</li>
+    <li>Gender Code: @ViewBag.userInput.gender</li>
 </ul>

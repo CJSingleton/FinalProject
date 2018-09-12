@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
 using System.Collections.Generic;
-using System.IO;    
+using System.IO;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using System.Configuration;
 using FinalProject.Models;
@@ -15,7 +13,7 @@ namespace FinalProject.Controllers
     {
         public ActionResult Index()
         {
-            HttpWebRequest apiRequest = WebRequest.CreateHttp("https://api.census.gov/data/2016/acs/acs1/profile?get=NAME,DP05_0009E,DP05_0002E,DP02_0004E,DP02_0005E,DP03_0004E,DP03_0057E,DP04_0096E,DP04_0129E&for=county+subdivision:33460&in=state:24+county:033");
+            HttpWebRequest apiRequest = WebRequest.CreateHttp("https://api.census.gov/data/2016/acs/acs1/profile?get=NAME,DP05_0009E,DP05_0002E,DP02_0004E,DP02_0005E,DP03_0004E,DP03_0057E,DP04_0096E,DP04_0129E&for=state:26");
             apiRequest.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
             apiRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
             HttpWebResponse apiResponse = (HttpWebResponse)apiRequest.GetResponse();
@@ -33,11 +31,36 @@ namespace FinalProject.Controllers
             }
             return View();
         }
+
+        //public ActionResult ApiQuery(int id, string incomerange, string age, string state, string gender)
+        //{
+        //    HowsLifeEntities ORM = new HowsLifeEntities();
+        //    List<UserInput> dataString = ORM.UserInputs.Where(x => x.userid == id).ToList();
+        //    UserInput lastInput = ORM.UserInputs.ToList()[ORM.UserInputs.ToList().Count - 1];
+            
+        //    HttpWebRequest apiRequest = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME,{incomerange},{gender}&for=state:{state}");
+        //    apiRequest.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
+        //    apiRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
+        //    HttpWebResponse apiResponse = (HttpWebResponse)apiRequest.GetResponse();
+
+        //    if (apiResponse.StatusCode == HttpStatusCode.OK) // (== 200) if we get status of 200, things are good.
+        //    {
+        //        StreamReader responseData = new StreamReader(apiResponse.GetResponseStream());// use System.IO
+        //        string data = responseData.ReadToEnd(); //reads data from the response
+
+        //        JArray jsonData = JArray.Parse(data);
+
+        //        ViewBag.test1 = jsonData/*[1]*/;
+        //        //ViewBag.triviadate = jsonCensusData["year"];
+
+        //    }
+        //}
         public ActionResult PresentInput()
         {
             HowsLifeEntities ORM = new HowsLifeEntities();
-            List<UserInput> infoList = ORM.UserInputs.ToList();
-            ViewBag.userInput = infoList;
+            
+            UserInput lastInput = ORM.UserInputs.ToList()[ORM.UserInputs.ToList().Count - 1];
+            ViewBag.userInput = lastInput;
             return View("PresentInput");
         }
         public ActionResult About()
