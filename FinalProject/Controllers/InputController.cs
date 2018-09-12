@@ -14,11 +14,6 @@ namespace FinalProject.Controllers
         public ActionResult SaveInput(UserInput userInput)
         {
             HowsLifeEntities ORM = new HowsLifeEntities();
-            userInput.userid = 0;
-            foreach (UserInput entry in ORM.UserInputs.ToList())
-            {
-                entry.userid++;
-            }
             ORM.UserInputs.Add(userInput);
             ORM.SaveChanges();
             return RedirectToAction("../Home/Index");
