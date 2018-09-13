@@ -3,6 +3,15 @@
     ViewBag.Title = "NewState";
 }
 <br />
+@{ double int1 = Convert.ToDouble(ViewBag.test1[1]); double int2 = Convert.ToDouble(ViewBag.test1[2]); double int3 = Convert.ToDouble(ViewBag.test1[22]);
+    double percent = Math.Round((int3 / (int1 + int2)) * 100, 0);
+    double index1 = Convert.ToDouble(ViewBag.test1[1]); double index2 = Convert.ToDouble(ViewBag.test1[2]); double UserGender = Convert.ToDouble(ViewBag.test1[22])/*<<<<This is the user gender info*/;
+    double Genpercent = Math.Round((UserGender / (index1 + index2)) * 100, 0);
+    double index3 = Convert.ToDouble(ViewBag.test1[3]); double index4 = Convert.ToDouble(ViewBag.test1[4]); double index5 = Convert.ToDouble(ViewBag.test1[5]); double index6 = Convert.ToDouble(ViewBag.test1[6]); double index7 = Convert.ToDouble(ViewBag.test1[7]); double index8 = Convert.ToDouble(ViewBag.test1[8]); double index9 = Convert.ToDouble(ViewBag.test1[9]); double index10 = Convert.ToDouble(ViewBag.test1[10]); double index11 = Convert.ToDouble(ViewBag.test1[11]); double UserAge = Convert.ToDouble(ViewBag.test1[6]);  /**/ double Ageint3 = Convert.ToDouble(ViewBag.test1[23])/*<<<<This is the user age info*/;
+    double Agepercent = Math.Round((UserAge / (index3 + index4 + index5 + index6 + index7 + index8 + index9 + index10 + index11)) * 100, 0);
+    double index12 = Convert.ToDouble(ViewBag.test1[12]); double index13 = Convert.ToDouble(ViewBag.test1[13]); double index14 = Convert.ToDouble(ViewBag.test1[14]); double index15 = Convert.ToDouble(ViewBag.test1[15]); double index16 = Convert.ToDouble(ViewBag.test1[16]); double index17 = Convert.ToDouble(ViewBag.test1[17]); double index18 = Convert.ToDouble(ViewBag.test1[18]); double index19 = Convert.ToDouble(ViewBag.test1[19]); double index20 = Convert.ToDouble(ViewBag.test1[20]); double index21 = Convert.ToDouble(ViewBag.test1[21]); double index22 = Convert.ToDouble(ViewBag.test1[22]); double UserIncome = Convert.ToDouble(ViewBag.test1[6]); /*<<<<This is the Income info*/;
+    double Incomepercent = Math.Round((UserIncome / (index12 + index13 + index14 + index15 + index16 + index17 + index18 + index19 + index20 + index21 + index22)) * 100, 0);
+}
 <ul>
     <li id="male">Total Male: @ViewBag.test1[1]</li>
     <li id="female">Total Female: @ViewBag.test1[2]</li>
@@ -32,21 +41,24 @@
 </ul>
 <br />
 <table class="table">
-    <tr><th>@ViewBag.userData.name</th><th>Your Info</th><th>Others Like You</th></tr>
+    <tr><th>@ViewBag.userData.name</th><th>Your Info</th><th>Others Like You</th><th>Your Percentile</th></tr>
     <tr>
         <td>Gender:</td>
         <td>@ViewBag.GenderLabel</td>
         <td>@ViewBag.test1[22]</td>
+        <td>@Genpercent</td>
     </tr>
     <tr>
         <td>Age Bracket:</td>
         <td>@ViewBag.AgeLabel</td>
         <td>@ViewBag.test1[23]</td>
+        <td>@Agepercent</td>
     </tr>
     <tr>
         <td>Income Bracket:</td>
         <td>@ViewBag.IncomeLabel</td>
         <td>@ViewBag.test1[24]</td>
+        <td>@Incomepercent</td>
     </tr>
 </table>
 <br />
