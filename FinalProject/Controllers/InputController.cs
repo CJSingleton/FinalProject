@@ -16,6 +16,7 @@ namespace FinalProject.Controllers
             HowsLifeEntities ORM = new HowsLifeEntities();
             ORM.UserInputs.Add(userInput);
             ORM.SaveChanges();
+
             return RedirectToAction("../Home/Index");
         }
     }

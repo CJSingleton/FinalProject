@@ -18,6 +18,27 @@ namespace FinalProject.Controllers
             UserInput lastInput = ORM.UserInputs.ToList()[ORM.UserInputs.ToList().Count - 1];
             ViewBag.userInput = lastInput;
 
+            List<string> ageCodes = new List<string> { "DP05_0004E", "DP05_0005E", "DP05_0006E", "DP05_0007E", "DP05_0008E", "DP05_0009E", "DP05_0010E", "DP05_0011E", "DP05_0012E", "DP05_0013E", "DP05_0014E", "DP05_0015E", "DP05_0016E" };
+            List<string> ageLabels = new List<string> { "Under 5 years", "5 to 9 years", "10 to 14 years", "15 to 19 years", "20 to 24 years", "25 to 34 years", "35 to 44 years", "45 to 54 years", "55 to 59 years", "60 to 64 years", "65 to 74 years", "75 to 84 years", "85 years and over" };
+
+            int codeIndexAge = ageCodes.IndexOf(lastInput.age);
+            string correspondingLabelAge = ageLabels[codeIndexAge];
+            ViewBag.AgeLabel = correspondingLabelAge;
+
+            List<string> genderCodes = new List<string> { "DP05_0002E", "DP05_0003E" };
+            List<string> genderLabels = new List<string> { "Male", "Female" };
+
+            int codeIndexGender = genderCodes.IndexOf(lastInput.gender);
+            string correspondingLabelGender = genderLabels[codeIndexGender];
+            ViewBag.GenderLabel = correspondingLabelGender;
+
+            List<string> incomeCodes = new List<string> { "DP03_0052E", "DP03_0053E", "DP03_0054E", "DP03_0055E", "DP03_0056E", "DP03_0057E", "DP03_0058E", "DP03_0059E", "DP03_0060E", "DP03_0061E" };
+            List<string> incomeLabels = new List<string> { "Less than $10,000", "$10,000 to $14,999", "$15,000 to $24,999", "$25,000 to $34,999", "$35,000 to $49,999", "$50,000 to $74,999", "$75,000 to $99,999", "$100,000 to $149,999", "$150,000 to $199,999", "$200,000 or more" };
+
+            int codeIndexIncome = incomeCodes.IndexOf(lastInput.incomerange);
+            string correspondingLabelIncome = incomeLabels[codeIndexIncome];
+            ViewBag.IncomeLabel = correspondingLabelIncome;
+
             HttpWebRequest apiRequest = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME," +
                 $"DP05_0002E," +
                 $"DP05_0003E," +
