@@ -23,6 +23,7 @@ namespace FinalProject.Controllers
                 $"DP05_0003E," +
                 $"DP05_0008E,DP05_0009E,DP05_0010E,DP05_0011E,DP05_0012E,DP05_0013E,DP05_0014E,DP05_0015E,DP05_0016E," +
                 $"DP03_0052E,DP03_0053E,DP03_0054E,DP03_0055E,DP03_0056E,DP03_0057E,DP03_0058E,DP03_0059E,DP03_0060E,DP03_0061E" +
+                $",{lastInput.gender},{lastInput.age},{lastInput.incomerange}" +
                 $"&for=state:{lastInput.state}");
 
             apiRequest.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
@@ -37,35 +38,10 @@ namespace FinalProject.Controllers
                 JArray jsonData = JArray.Parse(data);
                 
                 ViewBag.test1 = jsonData[1];
-                //ViewBag.triviadate = jsonCensusData["year"];
                 ViewBag.userData = lastInput;
             }
             return View();
         }
-
-        //public ActionResult ApiQuery(int id, string incomerange, string age, string state, string gender)
-        //{
-        //    HowsLifeEntities ORM = new HowsLifeEntities();
-        //    List<UserInput> dataString = ORM.UserInputs.Where(x => x.userid == id).ToList();
-        //    UserInput lastInput = ORM.UserInputs.ToList()[ORM.UserInputs.ToList().Count - 1];
-            
-        //    HttpWebRequest apiRequest = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME,{incomerange},{gender}&for=state:{state}");
-        //    apiRequest.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
-        //    apiRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
-        //    HttpWebResponse apiResponse = (HttpWebResponse)apiRequest.GetResponse();
-
-        //    if (apiResponse.StatusCode == HttpStatusCode.OK) // (== 200) if we get status of 200, things are good.
-        //    {
-        //        StreamReader responseData = new StreamReader(apiResponse.GetResponseStream());// use System.IO
-        //        string data = responseData.ReadToEnd(); //reads data from the response
-
-        //        JArray jsonData = JArray.Parse(data);
-
-        //        ViewBag.test1 = jsonData/*[1]*/;
-        //        //ViewBag.triviadate = jsonCensusData["year"];
-
-        //    }
-        //}
         public ActionResult PresentInput()
         {
             HowsLifeEntities ORM = new HowsLifeEntities();
@@ -154,7 +130,6 @@ namespace FinalProject.Controllers
             }
             return View();
         }
-
         private string JsonConvert(JToken jToken)
         {
             throw new NotImplementedException();

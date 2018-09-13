@@ -1,26 +1,14 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
 <br />
-
-@*string UID = User.Identity.GetUserID();*@
-
-@*<form action="/Home/GetStateInfo">
-        <input type="text" name="state" />
-        <input type="submit" value="ENTER" />
-    </form>*@
-
-@*@ViewBag.test1*@
-
 <ul>
-    <li>Total Male: @ViewBag.test1[1]</li>
-    <li>Total Female: @ViewBag.test1[2]</li>
+    <li id="male">Total Male: @ViewBag.test1[1]</li>
+    <li id="female">Total Female: @ViewBag.test1[2]</li>
 </ul>
-
 <ul>
-    <li>20 to 24 years: @ViewBag.test1[3]</li>
-    <li>25 to 34 years: @ViewBag.test1[4]</li>
+    <li id="20-40">20 to 24 years: @ViewBag.test1[3]</li>
+    <li id="25-34">25 to 34 years: @ViewBag.test1[4]</li>
     <li>35 to 44 years: @ViewBag.test1[5]</li>
     <li>45 to 54 years: @ViewBag.test1[6]</li>
     <li>55 to 59 years: @ViewBag.test1[7]</li>
@@ -29,7 +17,6 @@
     <li>75 to 84 years: @ViewBag.test1[10]</li>
     <li>85 years and over: @ViewBag.test1[11]</li>
 </ul>
-
 <ul>
     <li>Less than $10,000: @ViewBag.test1[12]</li>
     <li>$10,000 to $14,999: @ViewBag.test1[13]</li>
@@ -41,11 +28,11 @@
     <li>$100,000 to $149,999: @ViewBag.test1[19]</li>
     <li>$150,000 to $199,999: @ViewBag.test1[20]</li>
     <li>$200,000 or more: @ViewBag.test1[21]</li>
-
 </ul>
-
 <br/>
 <h3>user name: @ViewBag.userData.name</h3>
-<h3>gender: @ViewBag.userData.gender</h3>
-<h3>income: @ViewBag.userData.incomerange</h3>
-<h3>age: @ViewBag.userData.age</h3>
+
+<h3>gender: @ViewBag.test1[22]</h3>
+<h3>age: @ViewBag.test1[23]</h3>
+<h3>income: @ViewBag.test1[24]</h3>
+
