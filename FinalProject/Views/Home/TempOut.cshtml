@@ -85,10 +85,10 @@
 </script>
 
 <h2>@ViewBag.</h2>
-
+@{int average = (5902164 + 5168066 + 5198221 + 2481314 + 2206037 + 3092039 + 1538860 + 717540) / 717540;}
 <p>If the user is in a good or on par spot in life</p>
 <div class="w3-border">
-    <div class="w3-green" style="height:22px;width:50%"></div>
+    <div class="w3-green" style="height:22px;width:@average%"></div>
 </div>
 <p>If the user is in a bad spot in life</p>
 <div class="w3-border">
