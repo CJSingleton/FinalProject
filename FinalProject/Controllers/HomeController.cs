@@ -14,7 +14,17 @@ namespace FinalProject.Controllers
     {
         public ActionResult Index()
         {
-            HttpWebRequest apiRequest = WebRequest.CreateHttp("https://api.census.gov/data/2016/acs/acs1/profile?get=NAME,DP05_0009E,DP05_0002E,DP02_0004E,DP02_0005E,DP03_0004E,DP03_0057E,DP04_0096E,DP04_0129E&for=state:26");
+            HowsLifeEntities ORM = new HowsLifeEntities();
+            UserInput lastInput = ORM.UserInputs.ToList()[ORM.UserInputs.ToList().Count - 1];
+            ViewBag.userInput = lastInput;
+
+            HttpWebRequest apiRequest = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME," +
+                $"DP05_0002E," +
+                $"DP05_0003E," +
+                $"DP05_0008E,DP05_0009E,DP05_0010E,DP05_0011E,DP05_0012E,DP05_0013E,DP05_0014E,DP05_0015E,DP05_0016E," +
+                $"DP03_0052E,DP03_0053E,DP03_0054E,DP03_0055E,DP03_0056E,DP03_0057E,DP03_0058E,DP03_0059E,DP03_0060E,DP03_0061E" +
+                $"&for=state:{lastInput.state}");
+
             apiRequest.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
             apiRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
             HttpWebResponse apiResponse = (HttpWebResponse)apiRequest.GetResponse();
@@ -26,9 +36,9 @@ namespace FinalProject.Controllers
 
                 JArray jsonData = JArray.Parse(data);
                 
-                ViewBag.test1 = jsonData/*[1]*/;
+                ViewBag.test1 = jsonData[1];
                 //ViewBag.triviadate = jsonCensusData["year"];
-
+                ViewBag.userData = lastInput;
             }
             return View();
         }
