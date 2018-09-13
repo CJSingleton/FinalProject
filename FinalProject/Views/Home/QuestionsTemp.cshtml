@@ -30,19 +30,30 @@
     <img class="move center-block" src="https://png.pngtree.com/thumb_back/fh260/back_pic/00/09/35/00562e22c265465.jpg"/>
 
 
-    <form action="/Home/TempOut" class="text-center">
+    <form action="~/Input/SaveInput" class="text-center">
+        <h3>Enter your Name</h3>
+        <input type="text" ([A-Z][a-z]{1,}) name="name" pattern="[a-zA-Z]{2,}\s?[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?" required />
+        <br />
+
         <h3>Select your Gender</h3>
-        <select>
-            <option name="gender" value="Female">Female</option>
-            <option name="gender" value="Male">Male</option>
+
+        <select name="gender">
+            <option value="DP05_0003E">Female</option>
+            <option value="DP05_0002E">Male</option>
         </select>
 
-
-
-
-        <h3>Enter your Age</h3>
-        <input type="number" min="18" max="105" name="age" />
-
+        <h3>Select your Age</h3>
+        <select name="age">
+            <option value="DP05_0008E">18-24</option>
+            <option value="DP05_0009E">25-34</option>
+            <option value="DP05_0010E">35-44</option>
+            <option value="DP05_0011E">45-54</option>
+            <option value="DP05_0012E">55-59</option>
+            <option value="DP05_0013E">60-64</option>
+            <option value="DP05_0014E">65-74</option>
+            <option value="DP05_0015E">75-84</option>
+            <option value="DP05_0016E">85 and older</option>
+        </select>
 
 
         <h3>Select your State</h3>
@@ -65,6 +76,7 @@
             <option value="19">Iowa</option>
             <option value="20">Kansas</option>
             <option value="21">Kentucky</option>
+            <option value="22">Louisiana</option>
             <option value="23">Maine</option>
             <option value="24">Maryland</option>
             <option value="25">Massachusetts</option>
@@ -97,64 +109,69 @@
             <option value="54">West Virginia</option>
             <option value="55">Wisconsin</option>
             <option value="56">Wyoming</option>
-            <option value="22">Louisiana</option>
         </select>
 
 
 
         <h3>Enter your City</h3>
-        <input type="text" name="city" />
-
-
+        <input type="text" name="city" pattern="[a-zA-Z]+(?:[ '-][a-zA-Z]+)*" required />
 
         <h3>Select Your Marital Status</h3>
-        <input type="radio" name="maritalstatus" value="single" checked> Single<br>
-        <input type="radio" name="maritalstatus" value="married"> Married<br>
-        <input type="radio" name="maritalstatus" value="divSep">Divorced/Seperated
+        <input type="radio" name="maritalstatus" value="DP02_0010E" checked> Single<br>
+        <input type="radio" name="maritalstatus" value="DP02_0004E"> Married<br>
+        <input type="radio" name="maritalstatus" value="DP02_0010E">Divorced/Seperated
 
+        @*<h3>Are you currently employed?</h3>
+        <select name="employed">
+            <option value="DP03_0005E">No</option>
+            <option value="DP03_0004E">Yes</option>
+        </select>*@
 
-        <h3>Select the number of children you have</h3>
-        <select>
-            <option name="numofchildren" value="None">None</option>
-            <option name="numofchildren" value="1">1</option>
-            <option name="numofchildren" value="2">2</option>
-            <option name="numofchildren" value="3">3</option>
-            <option name="numofchildren" value="4">4</option>
-            <option name="numofchildren" value="5+">5+</option>
+        <h3>Do you have children?</h3>
+        <select name="haschildren">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
         </select>
 
 
         <h3>Select your highest level of education</h3>
-        <select>
-            <option name="collegeeducation" value="highGrad">Highschool Graduate</option>
-            <option name="collegeeducation" value="some">Some Highschool</option>
-            <option name="collegeeducation" value="someCollege">Some College</option>
-            <option name="collegeeducation" value="bachelor">Bachelors</option>
-            <option name="collegeeducation" value="masters">Masters</option>
-            <option name="collegeeducation" value="doctorate">Doctorate</option>
+        <select name="collegeeducation">
+            <option value="DP02_0060E">Some Highschool</option>
+            <option value="DP02_0061E">Highschool Graduate</option>
+            <option value="DP02_0062E">Some College</option>
+            <option value="DP02_0064E">Bachelors Degree</option>
+            <option value="DP02_0065E">Graduate Degree</option>
         </select>
 
         <h3>Select Your Level of Income</h3>
-
-        <input name="incomerange" type="radio" value="income0" checked> $0-$24,999
+        <input name="incomerange" type="radio" value="DP03_0052E"> Less than $10K
         <br>
-        <input name="incomerange" type="radio" value="income1"> $25,000-$50,000
+        <input name="incomerange" type="radio" value="DP03_0053E"> $10,000-$14,999
         <br>
-        <input name="incomerange" type="radio" value="income2"> $50,000-$100,000
+        <input name="incomerange" type="radio" value="DP03_0054E"> $15,000-$24,999
         <br>
-        <input name="incomerange" type="radio" value="income3"> More than $100,000
+        <input name="incomerange" type="radio" value="DP03_0055E"> $25,000-$34,999
+        <br>
+        <input name="incomerange" type="radio" value="DP03_0056E" checked> $35,000-$49,999
+        <br>
+        <input name="incomerange" type="radio" value="DP03_0057E"> $50,000-$74,999
+        <br>
+        <input name="incomerange" type="radio" value="DP03_0058E"> $75,000-$99,999
+        <br>
+        <input name="incomerange" type="radio" value="DP03_0059E"> $100,000-$149,999
+        <br>
+        <input name="incomerange" type="radio" value="DP03_0060E"> $150,000-$199,999
+        <br>
+        <input name="incomerange" type="radio" value="DP03_0061E"> More than $200K +
 
         <h3>Do you rent or own?</h3>
         <input type="radio" name="residentialstatus" value="own" checked> Own<br>
         <input type="radio" name="residentialstatus" value="rent"> Rent<br>
         <input type="radio" name="residentialstatus" value="par1"> I live with my parents<br>
-
-        <h3>Estimated home value</h3>
-        <input type="radio" name="homevalue" value="$100,000-$149,999" checked> $100,000-$149,999<br>
-        <input type="radio" name="homevalue" value="$150,000-$199,999"> $150,000-$199,999<br>
-        <input type="radio" name="homevalue" value="$200,000-$249,999"> $200,000-$249,999<br>
-
+        <br />
+        <br />
         <input type="submit" name="Submit" />
-        </br>
+        <br />
+        <br />
     </form>
 </div>
