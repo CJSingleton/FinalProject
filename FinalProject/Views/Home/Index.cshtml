@@ -30,9 +30,12 @@
     <li>$200,000 or more: @ViewBag.test1[21]</li>
 </ul>
 <br/>
+@{  double int1 = Convert.ToDouble(ViewBag.test1[1]); double int2 = Convert.ToDouble(ViewBag.test1[2]); double int3 = Convert.ToDouble(ViewBag.test1[22]);
+    double percent = Math.Round((int3 / (int1 + int2))*100, 0); }
 <h3>user name: @ViewBag.userData.name</h3>
 
-<h3>gender: @ViewBag.GenderLabel</h3>
+
+<h3>gender: @ViewBag.GenderLabel You are in the @percent percentile</h3>
 <h3>age: @ViewBag.AgeLabel</h3>
 <h3>income: @ViewBag.IncomeLabel</h3>
 
