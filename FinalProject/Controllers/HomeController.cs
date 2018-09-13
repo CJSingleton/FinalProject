@@ -73,7 +73,7 @@ namespace FinalProject.Controllers
         }
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Meet the Developers.";
 
             return View();
         }
