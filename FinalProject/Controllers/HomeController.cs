@@ -39,6 +39,8 @@ namespace FinalProject.Controllers
             string correspondingLabelIncome = incomeLabels[codeIndexIncome];
             ViewBag.IncomeLabel = correspondingLabelIncome;
 
+            //-------------------------------------------------------------------------------------------------------------------
+
             HttpWebRequest apiRequest = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME," +
                 $"DP05_0002E," +
                 $"DP05_0003E," +
@@ -59,6 +61,29 @@ namespace FinalProject.Controllers
                 JArray jsonData = JArray.Parse(data);
                 
                 ViewBag.test1 = jsonData[1];
+                ViewBag.userData = lastInput;
+            }
+            
+            HttpWebRequest apiRequest_2 = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME" +
+                $",DP02_0059E,DP02_0060E,DP02_0061E,DP02_0062E,DP02_0063E,DP02_0064E,DP02_0065E" + //educational attainment - test2[1-7]
+                $",DP04_0127E,DP04_0128E,DP04_0129E,DP04_0130E,DP04_0131E,DP04_0132E,DP04_0133E" + //gross rent paid per month - test2[8-14]
+                $",DP04_0094E,DP04_0095E,DP04_0096E,DP04_0097E,DP04_0098E,DP04_0099E,DP04_0100E,DP04_0101E" + //amount paid on mortgage per month - test2[15-22]
+                $",DP04_0103E,DP04_0104E,DP04_0105E,DP04_0106E,DP04_0107E,DP04_0108E" + //amount paid per month on house/no mortgage - test2[23-28]
+                $",{lastInput.gender},{lastInput.age},{lastInput.incomerange}" + // test2[29-31]
+                $"&for=state:{lastInput.state}");
+
+            apiRequest_2.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
+            apiRequest_2.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
+
+            HttpWebResponse apiResponse_2 = (HttpWebResponse)apiRequest_2.GetResponse();
+            if (apiResponse_2.StatusCode == HttpStatusCode.OK) // (== 200) if we get status of 200, things are good.
+            {
+                StreamReader responseData_2 = new StreamReader(apiResponse_2.GetResponseStream());// use System.IO
+                string data = responseData_2.ReadToEnd(); //reads data from the response
+
+                JArray jsonData_2 = JArray.Parse(data);
+
+                ViewBag.test2 = jsonData_2[1];
                 ViewBag.userData = lastInput;
             }
             return View();
@@ -102,7 +127,6 @@ namespace FinalProject.Controllers
             apiRequest.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
             apiRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
             HttpWebResponse apiResponse = (HttpWebResponse)apiRequest.GetResponse();
-
             if (apiResponse.StatusCode == HttpStatusCode.OK) // (== 200) if we get status of 200, things are good.
             {
                 StreamReader responseData = new StreamReader(apiResponse.GetResponseStream());// use System.IO
@@ -111,6 +135,28 @@ namespace FinalProject.Controllers
                 JArray jsonData = JArray.Parse(data);
 
                 ViewBag.test1 = jsonData[1];
+            }
+            
+            HttpWebRequest apiRequest_2 = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME" +
+                $",DP02_0059E,DP02_0060E,DP02_0061E,DP02_0062E,DP02_0063E,DP02_0064E,DP02_0065E" + //educational attainment - test2[1-7]
+                $",DP04_0127E,DP04_0128E,DP04_0129E,DP04_0130E,DP04_0131E,DP04_0132E,DP04_0133E" + //gross rent paid per month - test2[8-14]
+                $",DP04_0094E,DP04_0095E,DP04_0096E,DP04_0097E,DP04_0098E,DP04_0099E,DP04_0100E,DP04_0101E" + //amount paid on mortgage per month - test2[15-22]
+                $",DP04_0103E,DP04_0104E,DP04_0105E,DP04_0106E,DP04_0107E,DP04_0108E" + //amount paid per month on house/no mortgage - test2[23-28]
+                $",{lastInput.gender},{lastInput.age},{lastInput.incomerange}" + // test2[29-31]
+                $"&for=state:{lastInput.state}");
+
+            apiRequest_2.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
+            apiRequest_2.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
+
+            HttpWebResponse apiResponse_2 = (HttpWebResponse)apiRequest_2.GetResponse();
+            if (apiResponse_2.StatusCode == HttpStatusCode.OK) // (== 200) if we get status of 200, things are good.
+            {
+                StreamReader responseData_2 = new StreamReader(apiResponse_2.GetResponseStream());// use System.IO
+                string data = responseData_2.ReadToEnd(); //reads data from the response
+
+                JArray jsonData_2 = JArray.Parse(data);
+
+                ViewBag.test2 = jsonData_2[0];
                 ViewBag.userData = lastInput;
             }
             return View();
