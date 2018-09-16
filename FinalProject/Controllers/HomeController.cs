@@ -39,9 +39,28 @@ namespace FinalProject.Controllers
             string correspondingLabelIncome = incomeLabels[codeIndexIncome];
             ViewBag.IncomeLabel = correspondingLabelIncome;
 
-            List<string> educationCodes = new List<string> { "DP02_0060E", "DP02_0061E", "DP02_0062E", "DP02_0063E", "DP02_0064E", "DP02_0065E" };
+            List<string> educationCodes = new List<string> { "DP02_0060E", "DP02_0061E", "DP02_0062E", "DP02_0064E", "DP02_0065E" };
             List<string> educationLabels = new List<string> { "Some Highschool", "Highschool Graduate", "Some College", "Bachelor's Degree", "Graduate Degree" };
-           //need to create code index and viewbag****
+
+
+            int codeIndexEducation = educationCodes.IndexOf(lastInput.collegeeducation);
+            string correspondingLabelEducation = educationLabels[codeIndexEducation];
+            ViewBag.EducationLabels = correspondingLabelEducation;
+
+            List<string> marriageCodes = new List<string> { "DP02_0004E","DP02_0010E" };
+            List<string> marriageLabels = new List<string> { "Married", "Not Married" };
+
+            int codeIndexmarriage = marriageCodes.IndexOf(lastInput.maritalstatus);
+            string correspondingLabelmarriage = marriageLabels[codeIndexmarriage];
+            ViewBag.marriageLabels = correspondingLabelmarriage;
+
+            List<string> kidCodes = new List<string> { "DP02_0004E", "DP02_0005E" }; //double check codes for accuracy. 
+            List<string> kidLabels = new List<string> { "Has Children", "No Children" };
+
+            int codeIndexkid = kidCodes.IndexOf(lastInput.haschildren);  //need to change has children to string from "bool"// check codes for accuracy
+            string correspondingLabelkid = kidLabels[codeIndexkid];
+            ViewBag.kidLabels = correspondingLabelkid;
+
             //-------------------------------------------------------------------------------------------------------------------
 
             HttpWebRequest apiRequest = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME," +
@@ -68,7 +87,7 @@ namespace FinalProject.Controllers
             }
             
             HttpWebRequest apiRequest_2 = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME" +
-                $",DP02_0059E,DP02_0060E,DP02_0061E,DP02_0062E,DP02_0063E,DP02_0064E,DP02_0065E" + //educational attainment - test2[1-7]
+                $",DP02_0060E,DP02_0061E,DP02_0062E,DP02_0064E,DP02_0065E" + //educational attainment - test2[1-5]
                 $",DP04_0127E,DP04_0128E,DP04_0129E,DP04_0130E,DP04_0131E,DP04_0132E,DP04_0133E" + //gross rent paid per month - test2[8-14]
                 $",DP04_0094E,DP04_0095E,DP04_0096E,DP04_0097E,DP04_0098E,DP04_0099E,DP04_0100E,DP04_0101E" + //amount paid on mortgage per month - test2[15-22]
                 $",DP04_0103E,DP04_0104E,DP04_0105E,DP04_0106E,DP04_0107E,DP04_0108E" + //amount paid per month on house/no mortgage - test2[23-28]
