@@ -39,6 +39,9 @@ namespace FinalProject.Controllers
             string correspondingLabelIncome = incomeLabels[codeIndexIncome];
             ViewBag.IncomeLabel = correspondingLabelIncome;
 
+            List<string> educationCodes = new List<string> { "DP02_0060E", "DP02_0061E", "DP02_0062E", "DP02_0063E", "DP02_0064E", "DP02_0065E" };
+            List<string> educationLabels = new List<string> { "Some Highschool", "Highschool Graduate", "Some College", "Bachelor's Degree", "Graduate Degree" };
+           //need to create code index and viewbag****
             //-------------------------------------------------------------------------------------------------------------------
 
             HttpWebRequest apiRequest = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME," +
