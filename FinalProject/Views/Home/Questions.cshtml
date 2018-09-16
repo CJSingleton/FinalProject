@@ -1,7 +1,7 @@
 ﻿<br />
 <br />
 <form action="~/Input/SaveInput">
-    <h3>Enter your Name</h3>
+    <h3>Enter your First and Last Name</h3>
     <input type="text" ([A-Z][a-z]{1,}) name="name" pattern="[a-zA-Z]{2,}\s?[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?" required />
     <br />
 
@@ -83,8 +83,8 @@
 
 
 
-    <h3>Enter your City</h3>
-    <input type="text" name="city" pattern="[a-zA-Z]+(?:[ '-][a-zA-Z]+)*" required />
+    @*<h3>Enter your City</h3>
+    <input type="text" name="city" pattern="[a-zA-Z]+(?:[ '-][a-zA-Z]+)*" required />*@
 
     <h3>Select Your Marital Status</h3>
     <input type="radio" name="maritalstatus" value="DP02_0010E" checked> Single<br>
