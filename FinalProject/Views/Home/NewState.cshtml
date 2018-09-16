@@ -12,6 +12,8 @@
     double index12 = Convert.ToDouble(ViewBag.test1[12]); double index13 = Convert.ToDouble(ViewBag.test1[13]); double index14 = Convert.ToDouble(ViewBag.test1[14]); double index15 = Convert.ToDouble(ViewBag.test1[15]); double index16 = Convert.ToDouble(ViewBag.test1[16]); double index17 = Convert.ToDouble(ViewBag.test1[17]); double index18 = Convert.ToDouble(ViewBag.test1[18]); double index19 = Convert.ToDouble(ViewBag.test1[19]); double index20 = Convert.ToDouble(ViewBag.test1[20]); double index21 = Convert.ToDouble(ViewBag.test1[21]); double index22 = Convert.ToDouble(ViewBag.test1[22]); double UserIncome = Convert.ToDouble(ViewBag.test1[6]); /*<<<<This is the Income info*/;
     double Incomepercent = Math.Round((UserIncome / (index12 + index13 + index14 + index15 + index16 + index17 + index18 + index19 + index20 + index21)) * 100, 2);
     double rank = Math.Round((((((int1 + int2)) * Genpercent / 100) * Agepercent / 100) * Incomepercent / 100), 0); // builds the user rank overall for state
+    double totalPop = (int1 + int2);
+    double totalEarnings = ((UserIncome * (65 - UserAge)));
 }
 <ul>
     <li id="male">Total Male: @ViewBag.test1[1]</li>
@@ -63,7 +65,7 @@
     </tr>
     <tr>
         <td>Your rank by State:</td>
-        <td>@rank</td>
+        <td>You rank #@rank.ToString("###,###,###,###")  of @totalPop.ToString("###,###,###,###") in your state.</td>
         <td></td>
         <td></td>
     </tr>

@@ -42,6 +42,7 @@
     double Incomepercent = Math.Round((UserIncome / (index12 + index13 + index14 + index15 + index16 + index17 + index18 + index19 + index20 + index21)) * 100, 2);
     double rank = Math.Round((((((int1 + int2)) * Genpercent/100) * Agepercent/100) * Incomepercent/100),0); // builds the user rank overall for state
     double totalPop = (int1 + int2);
+    double totalEarnings =((UserIncome * (65 - UserAge)));
     }
 
 <h3>user name: @ViewBag.userData.name</h3>
@@ -69,7 +70,13 @@
     </tr>
     <tr>
         <td>Your rank by State:</td>
-        <td>You rank #@rank  of @totalPop in your state.</td>
+        <td>You rank #@rank.ToString("###,###,###,###")  of @totalPop.ToString("###,###,###,###") in your state.</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Lifetime Earnings:</td>
+        <td>$@totalEarnings</td>
         <td></td>
         <td></td>
     </tr>
