@@ -45,11 +45,11 @@ namespace FinalProject.Controllers
             //-------------------------------------------------------------------------------------------------------------------
 
             HttpWebRequest apiRequest = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME," +
-                $"DP05_0002E," +
-                $"DP05_0003E," +
-                $"DP05_0008E,DP05_0009E,DP05_0010E,DP05_0011E,DP05_0012E,DP05_0013E,DP05_0014E,DP05_0015E,DP05_0016E," +
-                $"DP03_0052E,DP03_0053E,DP03_0054E,DP03_0055E,DP03_0056E,DP03_0057E,DP03_0058E,DP03_0059E,DP03_0060E,DP03_0061E" +
-                $",{lastInput.gender},{lastInput.age},{lastInput.incomerange}" +
+                $"DP05_0002E,DP05_0003E" + //gender test1[1-2]
+                $",DP05_0008E,DP05_0009E,DP05_0010E,DP05_0011E,DP05_0012E,DP05_0013E,DP05_0014E,DP05_0015E,DP05_0016E" + //age test1[3-11]
+                $",DP03_0052E,DP03_0053E,DP03_0054E,DP03_0055E,DP03_0056E,DP03_0057E,DP03_0058E,DP03_0059E,DP03_0060E,DP03_0061E" + //income test1[12-21]
+                $",DP02_0004E,DP02_0010E" + //marriage status [22-23]
+                $",DP02_0004E,DP02_0005E" + //have kids [24-25]
                 $"&for=state:{lastInput.state}");
 
             apiRequest.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
