@@ -59,9 +59,7 @@
     double index10 = Convert.ToDouble(ViewBag.test1[10]);
     double index11 = Convert.ToDouble(ViewBag.test1[11]);
 
-    double UserAge = Convert.ToDouble(ViewBag.test1[6]);  /**/
-
-    double Ageint3 = Convert.ToDouble(ViewBag.test2[28])/*<<<<This is the user age info*/;
+    double UserAge = Convert.ToDouble(ViewBag.test2[28]);  /**/
 
     double Agepercent = Math.Round((UserAge/ (index3 + index4 + index5 + index6 + index7 + index8 + index9 + index10 + index11)) * 100, 2);
 
@@ -85,7 +83,7 @@
 
     double totalPop = (int1 + int2);
 
-    double totalEarnings =((UserIncome * (65 - UserAge)));
+    double totalEarnings = ((UserIncome + (UserIncome * .03) * (79 - UserAge)));
 
     double maritalStatus = Convert.ToDouble(ViewBag.test2[31]);
 
@@ -99,6 +97,14 @@
     double index228 = Convert.ToDouble(ViewBag.test2[4]);
     double index229 = Convert.ToDouble(ViewBag.test2[5]);
     double Edupercent = Math.Round(( userEdu/ (index225 + index226 + index227 + index228 + index229)) * 100, 2);
+
+
+    //if( ViewBag.test2[30] == "DP02_0064E" || ViewBag.test2[30] == "DP02_0065E")
+    //{
+    //    totalEarnings += 17500 * (79 - UserAge);
+    //}
+
+
     }
 
 <h3>user name: @ViewBag.userData.name</h3>
