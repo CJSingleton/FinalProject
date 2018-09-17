@@ -3,7 +3,7 @@
 }
 <br />
 
-<ul>
+@*<ul>
     <li>Total Male: @ViewBag.test1[1]</li>
     <li>Total Female: @ViewBag.test1[2]</li>
 </ul>
@@ -29,7 +29,7 @@
     <li>$100,000 to $149,999: @ViewBag.test1[19]</li>
     <li>$150,000 to $199,999: @ViewBag.test1[20]</li>
     <li>$200,000 or more: @ViewBag.test1[21]</li>
-</ul>
+</ul>*@
 <br/>
 
 
@@ -91,6 +91,14 @@
 
     double MaritalPercent = Math.Round((maritalStatus / (intm + intmm)) * 100, 2);
 
+    //education numbers:
+    double userEdu = Convert.ToDouble(ViewBag.test2[29]);
+    double index225 = Convert.ToDouble(ViewBag.test2[1]);
+    double index226 = Convert.ToDouble(ViewBag.test2[2]);
+    double index227 = Convert.ToDouble(ViewBag.test2[3]);
+    double index228 = Convert.ToDouble(ViewBag.test2[4]);
+    double index229 = Convert.ToDouble(ViewBag.test2[5]);
+    double Edupercent = Math.Round(( userEdu/ (index225 + index226 + index227 + index228 + index229)) * 100, 2);
     }
 
 <h3>user name: @ViewBag.userData.name</h3>
@@ -119,7 +127,7 @@
         <td>Education Level:</td>
         <td>@ViewBag.EducationLabel</td>
         <td>@ViewBag.test2[30]</td>
-        <td></td>
+        <td>@Edupercent%</td>
     </tr>
     <tr>
         <td>Marital Status:</td>
