@@ -37,6 +37,9 @@
     double int2 = Convert.ToDouble(ViewBag.test1[2]);
     double int3 = Convert.ToDouble(ViewBag.test2[27]);
 
+    double intm = Convert.ToDouble(ViewBag.test1[22]);
+    double intmm = Convert.ToDouble(ViewBag.test1[23]);
+
     double percent = Math.Round((int3 / (int1 + int2))*100, 0);
 
     double index1 = Convert.ToDouble(ViewBag.test1[1]);
@@ -83,6 +86,11 @@
     double totalPop = (int1 + int2);
 
     double totalEarnings =((UserIncome * (65 - UserAge)));
+
+    double maritalStatus = Convert.ToDouble(ViewBag.test2[31]);
+
+    double MaritalPercent = Math.Round((maritalStatus / (intm + intmm)) * 100, 2);
+
     }
 
 <h3>user name: @ViewBag.userData.name</h3>
@@ -107,19 +115,25 @@
         <td>@ViewBag.test2[29]</td>
         <td>@Incomepercent%</td>
     </tr>
-    
-    <tr>
-        <td>Your rank by State:</td>
-        <td>You rank #@rank.ToString("###,###,###,###")  of @totalPop.ToString("###,###,###,###") in your state.</td>
-        <td></td>
-        <td></td>
-    </tr>
     <tr>
         <td>Education Level:</td>
         <td>@ViewBag.EducationLabel</td>
         <td>@ViewBag.test2[30]</td>
         <td></td>
     </tr>
+    <tr>
+        <td>Marital Status:</td>
+        <td>@ViewBag.marriageLabels</td>
+        <td>@ViewBag.test2[31]</td>
+        <td>@MaritalPercent%</td>
+    </tr>
+    <tr>
+        <td>Your rank by State:</td>
+        <td>You rank #@rank.ToString("###,###,###,###")  of @totalPop.ToString("###,###,###,###") in your state.</td>
+        <td></td>
+        <td></td>
+    </tr>
+
     <tr>
         <td>Lifetime Earnings:</td>
         <td>$@totalEarnings</td>
