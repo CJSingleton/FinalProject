@@ -34,9 +34,11 @@ namespace FinalProject.Controllers
 
             List<string> incomeCodes = new List<string> { "DP03_0052E", "DP03_0053E", "DP03_0054E", "DP03_0055E", "DP03_0056E", "DP03_0057E", "DP03_0058E", "DP03_0059E", "DP03_0060E", "DP03_0061E" };
             List<string> incomeLabels = new List<string> { "Less than $10,000", "$10,000 to $14,999", "$15,000 to $24,999", "$25,000 to $34,999", "$35,000 to $49,999", "$50,000 to $74,999", "$75,000 to $99,999", "$100,000 to $149,999", "$150,000 to $199,999", "$200,000 or more" };
+            List<int> incomeValues = new List<int> { 10000, 15000, 25000, 35000, 50000, 75000, 100000, 150000, 200000, 250000 };
 
             int codeIndexIncome = incomeCodes.IndexOf(lastInput.incomerange);
             string correspondingLabelIncome = incomeLabels[codeIndexIncome];
+            int correspondingValueIncome = incomeValues[codeIndexIncome];
             ViewBag.IncomeLabel = correspondingLabelIncome;
 
             List<string> educationCodes = new List<string> { "DP02_0060E", "DP02_0061E", "DP02_0062E", "DP02_0064E", "DP02_0065E" };
@@ -105,6 +107,22 @@ namespace FinalProject.Controllers
 
                 ViewBag.test2 = jsonData_2[1];
             }
+
+            ViewBag.EducationSuggestion = " ";
+            if(lastInput.collegeeducation == "DP02_0060E" || lastInput.collegeeducation == "DP02_0061E" || lastInput.collegeeducation == "DP02_0062E")
+            {
+                ViewBag.EducationSuggestion = "A recent study from Georgetown University found that, on average, college graduates earn $1 million more in earnings over their lifetime. Another recent study by the Pew Research Center found that the median yearly income gap between high school and college graduates is around $17,500. Maybe you should get a degree!";
+            }
+
+            ViewBag.HousingSuggestion = " ";
+            if (lastInput.residentialstatus == "rent")
+            {
+                if ((correspondingValueIncome / 40) > Int32.Parse(lastInput.grosserent))
+                {
+                    ViewBag.HousingSuggestion = "You're spending too much on rent, have you looked anywhere less expensive?";
+                }
+            }
+
             return View();
         }
         
