@@ -3,7 +3,7 @@
 }
 <br />
 
-@*<ul>
+<ul>
     <li>Total Male: @ViewBag.test1[1]</li>
     <li>Total Female: @ViewBag.test1[2]</li>
 </ul>
@@ -29,18 +29,20 @@
     <li>$100,000 to $149,999: @ViewBag.test1[19]</li>
     <li>$150,000 to $199,999: @ViewBag.test1[20]</li>
     <li>$200,000 or more: @ViewBag.test1[21]</li>
-</ul>*@
-<br/>
+</ul>
+<br />
 
+@{ double int3 = Convert.ToDouble(ViewBag.test2[27]);
 
-@{  double int1 = Convert.ToDouble(ViewBag.test1[1]);
+}
+@{ double int1 = Convert.ToDouble(ViewBag.test1[1]);
     double int2 = Convert.ToDouble(ViewBag.test1[2]);
-    double int3 = Convert.ToDouble(ViewBag.test2[27]);
+    //double int3 = Convert.ToDouble(ViewBag.test2[27]);
 
     double intm = Convert.ToDouble(ViewBag.test1[22]);
     double intmm = Convert.ToDouble(ViewBag.test1[23]);
 
-    double percent = Math.Round((int3 / (int1 + int2))*100, 0);
+    double percent = Math.Round((int3 / (int1 + int2)) * 100, 0);
 
     double index1 = Convert.ToDouble(ViewBag.test1[1]);
     double index2 = Convert.ToDouble(ViewBag.test1[2]);
@@ -61,7 +63,7 @@
 
     double UserAge = Convert.ToDouble(ViewBag.test2[28]);  /**/
 
-    double Agepercent = Math.Round((UserAge/ (index3 + index4 + index5 + index6 + index7 + index8 + index9 + index10 + index11)) * 100, 2);
+    double Agepercent = Math.Round((UserAge / (index3 + index4 + index5 + index6 + index7 + index8 + index9 + index10 + index11)) * 100, 2);
 
     double index12 = Convert.ToDouble(ViewBag.test1[12]);
     double index13 = Convert.ToDouble(ViewBag.test1[13]);
@@ -79,7 +81,7 @@
 
     double Incomepercent = Math.Round((UserIncome / (index12 + index13 + index14 + index15 + index16 + index17 + index18 + index19 + index20 + index21)) * 100, 2);
 
-    double rank = Math.Round((((((int1 + int2)) * Genpercent/100) * Agepercent/100) * Incomepercent/100),0); // builds the user rank overall for state
+    double rank = Math.Round((((((int1 + int2)) * Genpercent / 100) * Agepercent / 100) * Incomepercent / 100), 0); // builds the user rank overall for state
 
     double totalPop = (int1 + int2);
 
@@ -96,7 +98,7 @@
     double index227 = Convert.ToDouble(ViewBag.test2[3]);
     double index228 = Convert.ToDouble(ViewBag.test2[4]);
     double index229 = Convert.ToDouble(ViewBag.test2[5]);
-    double Edupercent = Math.Round(( userEdu/ (index225 + index226 + index227 + index228 + index229)) * 100, 2);
+    double Edupercent = Math.Round((userEdu / (index225 + index226 + index227 + index228 + index229)) * 100, 2);
 
 
     //if( ViewBag.test2[30] == "DP02_0064E" || ViewBag.test2[30] == "DP02_0065E")
@@ -105,7 +107,7 @@
     //}
 
 
-    }
+}
 
 <h3>user name: @ViewBag.userData.name</h3>
 

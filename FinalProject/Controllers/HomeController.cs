@@ -97,7 +97,7 @@ namespace FinalProject.Controllers
                 $",DP04_0127E,DP04_0128E,DP04_0129E,DP04_0130E,DP04_0131E,DP04_0132E,DP04_0133E" + //gross rent paid per month - test2[6-12]
                 $",DP04_0094E,DP04_0095E,DP04_0096E,DP04_0097E,DP04_0098E,DP04_0099E,DP04_0100E,DP04_0101E" + //amount paid on mortgage per month - test2[13-20]
                 $",DP04_0103E,DP04_0104E,DP04_0105E,DP04_0106E,DP04_0107E,DP04_0108E" + //amount paid per month on house/no mortgage - test2[21-26]
-                $",,{lastInput.gender},{lastInput.age},{lastInput.incomerange}{lastInput.collegeeducation},{lastInput.maritalstatus}" + // test2[27-31]
+                $",{lastInput.gender},{lastInput.age},{lastInput.incomerange},{lastInput.collegeeducation},{lastInput.maritalstatus}" + // test2[27-31]
                 $"&for=state:{lastInput.state}");
             /**/
             apiRequest_2.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
