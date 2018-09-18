@@ -119,7 +119,7 @@ namespace FinalProject.Controllers
                 string data = responseData_2.ReadToEnd(); //reads data from the response
 
                 JArray jsonData_2 = JArray.Parse(data);
-
+                
                 ViewBag.test2 = jsonData_2[1];
             }
 

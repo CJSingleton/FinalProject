@@ -88,11 +88,23 @@
     double index229 = Convert.ToDouble(ViewBag.test2[5]);
     double Edupercent = Math.Round((userEdu / (index225 + index226 + index227 + index228 + index229)) * 100, 2);
 
+
     //kid numbers
-    double userKids = Convert.ToDouble(ViewBag.test2[32]);
-    double kidIndex = Convert.ToDouble(ViewBag.test1[24]);
+
+    //double kidindex1 = Convert.ToDouble(ViewBag.test1[24]);
+    //double kidindex2 = Convert.ToDouble(ViewBag.test1[25]);
+    //double userkids = Convert.ToDouble(ViewBag.test2[32]);
+    //double KidsPercent = Math.Round((UserGender / (kidindex1 + kidindex2)) * 100, 2);
+
+    double kidstotal = Convert.ToDouble(ViewBag.test1[24]);
     double noKidIndex = Convert.ToDouble(ViewBag.test1[24]) - Convert.ToDouble(ViewBag.test1[25]);
-    double kidPercent = Math.Round((userKids / kidIndex) * 100, 2);
+    double userkids = Convert.ToDouble(ViewBag.test2[32]);
+    if (ViewBag.test2[32] == ViewBag.test1[24])
+    {
+        userkids = noKidIndex;
+    }
+    double kidPercent = Math.Round((userkids / kidstotal) * 100, 2);
+
 
     //if( ViewBag.test2[30] == "DP02_0064E" || ViewBag.test2[30] == "DP02_0065E")
     //{
