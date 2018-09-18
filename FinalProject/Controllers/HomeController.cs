@@ -14,8 +14,9 @@ namespace FinalProject.Controllers
     {
         public ActionResult Index()
         {
+            UserInput lastInput;
             HowsLifeEntities ORM = new HowsLifeEntities();
-            UserInput lastInput = ORM.UserInputs.ToList()[ORM.UserInputs.ToList().Count - 1];
+            lastInput = ORM.UserInputs.ToList()[ORM.UserInputs.ToList().Count - 1];
             ViewBag.userData = lastInput;
 
             List<string> ageCodes = new List<string> { "DP05_0004E", "DP05_0005E", "DP05_0006E", "DP05_0007E", "DP05_0008E", "DP05_0009E", "DP05_0010E", "DP05_0011E", "DP05_0012E", "DP05_0013E", "DP05_0014E", "DP05_0015E", "DP05_0016E" };
@@ -60,12 +61,21 @@ namespace FinalProject.Controllers
             string correspondingLabelmarriage = marriageLabels[codeIndexmarriage];
             ViewBag.marriageLabels = correspondingLabelmarriage;
 
-            List<string> kidCodes = new List<string> { "DP02_0005E", "DP02_0004E" }; 
+            List<string> kidCodes = new List<string> {/*"DP02_0005E"*/ "DP02_0013E", /*"DP02_0004E"*/"DP02_0001E"}; 
             List<string> kidLabels = new List<string> { "Has Children", "No Children" };
-            //int codeIndexkid = kidCodes.IndexOf(lastInput.haschildren.ToString()); 
-            //string correspondingLabelkid = kidLabels[codeIndexkid];
-            //ViewBag.kidLabels = correspondingLabelkid;
-
+            string userKidCode = "";
+            if (lastInput.haschildren == true)
+            {
+                userKidCode = "DP02_0013E";
+            }
+            else
+            {
+                userKidCode = "DP02_0001E";
+            }
+            int codeIndexKids = kidCodes.IndexOf(userKidCode);
+            string correspondingLabelKids = kidLabels[codeIndexKids];
+            ViewBag.userKidCodeLabel = correspondingLabelKids;
+            
             //-----------------------------------------------------------------------------------
 
             HttpWebRequest apiRequest = WebRequest.CreateHttp($"https://api.census.gov/data/2016/acs/acs1/profile?get=NAME" +
@@ -73,7 +83,7 @@ namespace FinalProject.Controllers
             $",DP05_0008E,DP05_0009E,DP05_0010E,DP05_0011E,DP05_0012E,DP05_0013E,DP05_0014E,DP05_0015E,DP05_0016E" + //age test1[3-11]
             $",DP03_0052E,DP03_0053E,DP03_0054E,DP03_0055E,DP03_0056E,DP03_0057E,DP03_0058E,DP03_0059E,DP03_0060E,DP03_0061E" + //income test1[12-21]
             $",DP02_0004E,DP02_0010E" + //marriage status test1[22-23]
-            $",DP02_0004E,DP02_0005E" + //have kids test1[24-25]
+            $",DP02_0001E,DP02_0013E" + //have kids test1[24-25]
             $",{lastInput.gender},{lastInput.age},{lastInput.incomerange},{lastInput.collegeeducation},{lastInput.maritalstatus}" + // test1[26-30]
             $"&for=state:{lastInput.state}");
 
@@ -96,7 +106,7 @@ namespace FinalProject.Controllers
                 $",DP04_0127E,DP04_0128E,DP04_0129E,DP04_0130E,DP04_0131E,DP04_0132E,DP04_0133E" + //gross rent paid per month - test2[6-12]
                 $",DP04_0094E,DP04_0095E,DP04_0096E,DP04_0097E,DP04_0098E,DP04_0099E,DP04_0100E,DP04_0101E" + //amount paid on mortgage per month - test2[13-20]
                 $",DP04_0103E,DP04_0104E,DP04_0105E,DP04_0106E,DP04_0107E,DP04_0108E" + //amount paid per month on house/no mortgage - test2[21-26]
-                $",{lastInput.gender},{lastInput.age},{lastInput.incomerange},{lastInput.collegeeducation},{lastInput.maritalstatus}" + // test2[27-31]
+                $",{lastInput.gender},{lastInput.age},{lastInput.incomerange},{lastInput.collegeeducation},{lastInput.maritalstatus},{userKidCode}" + // test2[27-32]
                 $"&for=state:{lastInput.state}");
             /**/
             apiRequest_2.Headers.Add("X-Census-Key", ConfigurationManager.AppSettings["X-Census-Key"]); // used to add keys.
@@ -112,6 +122,7 @@ namespace FinalProject.Controllers
 
                 ViewBag.test2 = jsonData_2[1];
             }
+
             //-------------------------------------------------------------------------------------------------------------------
 
             ViewBag.EducationSuggestion = " ";
@@ -125,8 +136,25 @@ namespace FinalProject.Controllers
             {
                 if ((correspondingValueIncome / 40) < Int32.Parse(lastInput.grosserent))
                 {
-                    ViewBag.HousingSuggestion = "You're spending too much on rent, have you looked anywhere less expensive?";
+                    ViewBag.HousingSuggestion = "You're spending too much on rent! Have you looked anywhere less expensive?";
                 }
+            }
+            
+            double kidCost = 237095.50;
+            string kidNo = "";
+            if(lastInput.numberofkids == 1)
+            {
+                kidNo = "kid";
+            }
+            else
+            {
+                kidNo = "kids";
+            }
+            ViewBag.KidsSuggestion = "";
+            if(lastInput.numberofkids > 0)
+            {
+                ViewBag.KidsSuggestion = $"Research estimates that your {lastInput.numberofkids} {kidNo} will cost {lastInput.numberofkids * kidCost:C} to raise to the age of 18. Kids are expensive!";
+                    
             }
 
             return View();

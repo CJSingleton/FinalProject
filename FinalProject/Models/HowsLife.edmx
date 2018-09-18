@@ -14,7 +14,7 @@
           <Property Name="age" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="incomerange" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="gender" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="city" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
           <Property Name="state" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="maritalstatus" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="haschildren" Type="bit" Nullable="false" />
@@ -23,6 +23,7 @@
           <Property Name="grosserent" Type="nvarchar" MaxLength="50" />
           <Property Name="mortgagecost" Type="nvarchar" MaxLength="50" />
           <Property Name="monthlyexpenses" Type="nvarchar" MaxLength="50" />
+          <Property Name="numberofkids" Type="int" />
         </EntityType>
         <EntityContainer Name="HowsMyLifeModelStoreContainer">
           <EntitySet Name="UserInput" EntityType="Self.UserInput" Schema="dbo" store:Type="Tables" />
@@ -43,7 +44,7 @@
           <Property Name="age" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="incomerange" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="gender" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="city" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="state" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="maritalstatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="haschildren" Type="Boolean" Nullable="false" />
@@ -52,6 +53,7 @@
           <Property Name="grosserent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="mortgagecost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="monthlyexpenses" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numberofkids" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -62,6 +64,7 @@
           <EntitySetMapping Name="UserInputs">
             <EntityTypeMapping TypeName="HowsMyLifeModel.UserInput">
               <MappingFragment StoreEntitySet="UserInput">
+                <ScalarProperty Name="numberofkids" ColumnName="numberofkids" />
                 <ScalarProperty Name="monthlyexpenses" ColumnName="monthlyexpenses" />
                 <ScalarProperty Name="mortgagecost" ColumnName="mortgagecost" />
                 <ScalarProperty Name="grosserent" ColumnName="grosserent" />

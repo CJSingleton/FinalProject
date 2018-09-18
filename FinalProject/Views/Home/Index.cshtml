@@ -3,52 +3,47 @@
 }
 <br />
 
-<ul>
-    <li>Total Male: @ViewBag.test1[1]</li>
-    <li>Total Female: @ViewBag.test1[2]</li>
-</ul>
-<ul>
-    <li>20 to 24 years: @ViewBag.test1[3]</li>
-    <li>25 to 34 years: @ViewBag.test1[4]</li>
-    <li>35 to 44 years: @ViewBag.test1[5]</li>
-    <li>45 to 54 years: @ViewBag.test1[6]</li>
-    <li>55 to 59 years: @ViewBag.test1[7]</li>
-    <li>60 to 64 years: @ViewBag.test1[8]</li>
-    <li>65 to 74 years: @ViewBag.test1[9]</li>
-    <li>75 to 84 years: @ViewBag.test1[10]</li>
-    <li>85 years and over: @ViewBag.test1[11]</li>
-</ul>
-<ul>
-    <li>Less than $10,000: @ViewBag.test1[12]</li>
-    <li>$10,000 to $14,999: @ViewBag.test1[13]</li>
-    <li>$15,000 to $24,999: @ViewBag.test1[14]</li>
-    <li>$25,000 to $34,999: @ViewBag.test1[15]</li>
-    <li>$35,000 to $49,999: @ViewBag.test1[16]</li>
-    <li>$50,000 to $74,999: @ViewBag.test1[17]</li>
-    <li>$75,000 to $99,999: @ViewBag.test1[18]</li>
-    <li>$100,000 to $149,999: @ViewBag.test1[19]</li>
-    <li>$150,000 to $199,999: @ViewBag.test1[20]</li>
-    <li>$200,000 or more: @ViewBag.test1[21]</li>
-</ul>
-<br />
+@*<ul>
+        <li>Total Male: @ViewBag.test1[1]</li>
+        <li>Total Female: @ViewBag.test1[2]</li>
+    </ul>
+    <ul>
+        <li>20 to 24 years: @ViewBag.test1[3]</li>
+        <li>25 to 34 years: @ViewBag.test1[4]</li>
+        <li>35 to 44 years: @ViewBag.test1[5]</li>
+        <li>45 to 54 years: @ViewBag.test1[6]</li>
+        <li>55 to 59 years: @ViewBag.test1[7]</li>
+        <li>60 to 64 years: @ViewBag.test1[8]</li>
+        <li>65 to 74 years: @ViewBag.test1[9]</li>
+        <li>75 to 84 years: @ViewBag.test1[10]</li>
+        <li>85 years and over: @ViewBag.test1[11]</li>
+    </ul>
+    <ul>
+        <li>Less than $10,000: @ViewBag.test1[12]</li>
+        <li>$10,000 to $14,999: @ViewBag.test1[13]</li>
+        <li>$15,000 to $24,999: @ViewBag.test1[14]</li>
+        <li>$25,000 to $34,999: @ViewBag.test1[15]</li>
+        <li>$35,000 to $49,999: @ViewBag.test1[16]</li>
+        <li>$50,000 to $74,999: @ViewBag.test1[17]</li>
+        <li>$75,000 to $99,999: @ViewBag.test1[18]</li>
+        <li>$100,000 to $149,999: @ViewBag.test1[19]</li>
+        <li>$150,000 to $199,999: @ViewBag.test1[20]</li>
+        <li>$200,000 or more: @ViewBag.test1[21]</li>
+    </ul>
+    <br />*@
 
-@{ double int3 = Convert.ToDouble(ViewBag.test2[27]);
 
-}
 @{ double int1 = Convert.ToDouble(ViewBag.test1[1]);
     double int2 = Convert.ToDouble(ViewBag.test1[2]);
-    //double int3 = Convert.ToDouble(ViewBag.test2[27]);
+    double int3 = Convert.ToDouble(ViewBag.test2[27]);
 
     double intm = Convert.ToDouble(ViewBag.test1[22]);
     double intmm = Convert.ToDouble(ViewBag.test1[23]);
-
     double percent = Math.Round((int3 / (int1 + int2)) * 100, 0);
 
     double index1 = Convert.ToDouble(ViewBag.test1[1]);
     double index2 = Convert.ToDouble(ViewBag.test1[2]);
-
     double UserGender = Convert.ToDouble(ViewBag.test2[27])/*<<<<This is the user gender info*/;
-
     double Genpercent = Math.Round((UserGender / (index1 + index2)) * 100, 2);
 
     double index3 = Convert.ToDouble(ViewBag.test1[3]);
@@ -60,9 +55,7 @@
     double index9 = Convert.ToDouble(ViewBag.test1[9]);
     double index10 = Convert.ToDouble(ViewBag.test1[10]);
     double index11 = Convert.ToDouble(ViewBag.test1[11]);
-
     double UserAge = Convert.ToDouble(ViewBag.test2[28]);  /**/
-
     double Agepercent = Math.Round((UserAge / (index3 + index4 + index5 + index6 + index7 + index8 + index9 + index10 + index11)) * 100, 2);
 
     double index12 = Convert.ToDouble(ViewBag.test1[12]);
@@ -75,20 +68,14 @@
     double index19 = Convert.ToDouble(ViewBag.test1[19]);
     double index20 = Convert.ToDouble(ViewBag.test1[20]);
     double index21 = Convert.ToDouble(ViewBag.test1[21]);
-    //double index22 = Convert.ToDouble(ViewBag.test1[22]);
-
     double UserIncome = Convert.ToDouble(ViewBag.test2[29]); /*<<<<This is the Income info*/;
-
     double Incomepercent = Math.Round((UserIncome / (index12 + index13 + index14 + index15 + index16 + index17 + index18 + index19 + index20 + index21)) * 100, 2);
 
     double rank = Math.Round((((((int1 + int2)) * Genpercent / 100) * Agepercent / 100) * Incomepercent / 100), 0); // builds the user rank overall for state
 
     double totalPop = (int1 + int2);
-
     double totalEarnings = (ViewBag.IncomeValue * 1.45) * (79 - ViewBag.AgeValue);
-
     double maritalStatus = Convert.ToDouble(ViewBag.test2[31]);
-
     double MaritalPercent = Math.Round((maritalStatus / (intm + intmm)) * 100, 2);
 
     //education numbers:
@@ -100,19 +87,22 @@
     double index229 = Convert.ToDouble(ViewBag.test2[5]);
     double Edupercent = Math.Round((userEdu / (index225 + index226 + index227 + index228 + index229)) * 100, 2);
 
+    //kid numbers
+    double userKids = Convert.ToDouble(ViewBag.test2[32]);
+    double kidIndex = Convert.ToDouble(ViewBag.test1[24]);
+    double noKidIndex = Convert.ToDouble(ViewBag.test1[24]) - Convert.ToDouble(ViewBag.test1[25]);
+    double kidPercent = Math.Round((userKids / kidIndex) * 100, 2);
 
     //if( ViewBag.test2[30] == "DP02_0064E" || ViewBag.test2[30] == "DP02_0065E")
     //{
     //    totalEarnings += 17500 * (79 - UserAge);
     //}
-
-
 }
 
-<h3>user name: @ViewBag.userData.name</h3>
+<h3>Name: @ViewBag.userData.name</h3>
 
 <table class="table">
-    <tr><th>@ViewBag.userData.name</th><th>Your Info</th><th>Others Like You</th><th>Percentile You're In</th></tr>
+    <tr><th>Category</th><th>Your Info</th><th>Others Like You</th><th>Percentile You're In</th></tr>
     <tr>
         <td>Gender:</td>
         <td>@ViewBag.GenderLabel</td>
@@ -144,12 +134,17 @@
         <td>@MaritalPercent%</td>
     </tr>
     <tr>
+        <td>Children:</td>
+        <td>@ViewBag.userKidCodeLabel</td>
+        <td>@ViewBag.test2[32]</td>
+        <td>@kidPercent%</td>
+    </tr>
+    <tr>
         <td>Your rank by State:</td>
-        <td>You rank #@rank.ToString("###,###,###,###")  of @totalPop.ToString("###,###,###,###") in your state.</td>
+        <td>You rank #@rank.ToString("###,###,###,###") of @totalPop.ToString("###,###,###,###") in your state.</td>
         <td></td>
         <td></td>
     </tr>
-
     <tr>
         <td>Lifetime Earnings:</td>
         <td>$@totalEarnings.ToString("###,###,###,###")</td>
@@ -157,14 +152,20 @@
         <td></td>
     </tr>
 </table>
-<br />
-<br />
-@ViewBag.EducationSuggestion
-<br />
-<br />
-@ViewBag.HousingSuggestion
-<br />
-<br />
+<br/>
+<table>
+    <tr><th>Suggestions:</th></tr>
+    <tr>
+        <td>
+            <ol>
+                <li>@ViewBag.EducationSuggestion</li>
+                <li>@ViewBag.HousingSuggestion</li>
+                <li>@ViewBag.KidsSuggestion</li>
+            </ol>
+        </td>
+    </tr>
+</table>
+<br/>
 <form action="/Home/NewState">
     <label>Change your state?</label>    <select name="stateid">
         <option value="01" name="stateid">Alabama</option>

@@ -7,7 +7,6 @@
         width: 100%;
         height: 100%;
         background-color:cornflowerblue;
-
     }
     .navbar {
         margin-bottom: 20px;
@@ -25,7 +24,7 @@
     }
 .jumbotron {width: 100%; height: 100%; background-image: url('https://png.pngtree.com/thumb_back/fh260/back_pic/00/09/35/00562e22c265465.jpg'); background-size: cover; }
 </style>
-</br>
+<br/>
 <div class="container pop">
     <img class="move center-block" src="https://png.pngtree.com/thumb_back/fh260/back_pic/00/09/35/00562e22c265465.jpg"/>
 
@@ -54,7 +53,6 @@
             <option value="DP05_0015E">75-84</option>
             <option value="DP05_0016E">85 and older</option>
         </select>
-
 
         <h3>Select your State</h3>
 
@@ -111,10 +109,8 @@
             <option value="56">Wyoming</option>
         </select>
 
-
-
-        <h3>Enter your City</h3>
-        <input type="text" name="city" pattern="[a-zA-Z]+(?:[ '-][a-zA-Z]+)*" required />
+        @*<h3>Enter your City</h3>
+        <input type="text" name="city" pattern="[a-zA-Z]+(?:[ '-][a-zA-Z]+)*" required />*@
 
         <h3>Select Your Marital Status</h3>
         <input type="radio" name="maritalstatus" value="DP02_0010E" checked> Single<br>
@@ -129,10 +125,11 @@
 
         <h3>Do you have children?</h3>
         <select name="haschildren">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
+            <option value="false">No</option>
+            <option value="true">Yes</option>
         </select>
-
+        <h4>how many?</h4>
+        <input type="number" name="numberofkids" min="0" max="20" placeholder="0" />
 
         <h3>Select your highest level of education</h3>
         <select name="collegeeducation">
