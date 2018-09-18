@@ -85,7 +85,7 @@
 
     double totalPop = (int1 + int2);
 
-    double totalEarnings = ((UserIncome + (UserIncome * .03) * (79 - UserAge)));
+    double totalEarnings = (ViewBag.IncomeValue * 1.45) * (79 - ViewBag.AgeValue);
 
     double maritalStatus = Convert.ToDouble(ViewBag.test2[31]);
 
@@ -152,7 +152,7 @@
 
     <tr>
         <td>Lifetime Earnings:</td>
-        <td>$@totalEarnings</td>
+        <td>$@totalEarnings.ToString("###,###,###,###")</td>
         <td></td>
         <td></td>
     </tr>
