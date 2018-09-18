@@ -62,7 +62,6 @@ namespace FinalProject.Controllers
 
             List<string> kidCodes = new List<string> { "DP02_0005E", "DP02_0004E" }; 
             List<string> kidLabels = new List<string> { "Has Children", "No Children" };
-
             //int codeIndexkid = kidCodes.IndexOf(lastInput.haschildren.ToString()); 
             //string correspondingLabelkid = kidLabels[codeIndexkid];
             //ViewBag.kidLabels = correspondingLabelkid;

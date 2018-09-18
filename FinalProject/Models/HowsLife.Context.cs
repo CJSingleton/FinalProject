@@ -13,7 +13,7 @@ namespace FinalProject.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HowsLifeEntities : DbContext
+    public partial class  HowsLifeEntities : DbContext
     {
         public HowsLifeEntities()
             : base("name=HowsLifeEntities")
