@@ -113,21 +113,21 @@ namespace FinalProject.Controllers
                 ViewBag.test2 = jsonData_2[1];
             }
             //-------------------------------------------------------------------------------------------------------------------
-            
-            //ViewBag.EducationSuggestion = " ";
-            //if(lastInput.collegeeducation == "DP02_0060E" || lastInput.collegeeducation == "DP02_0061E" || lastInput.collegeeducation == "DP02_0062E")
-            //{
-            //    ViewBag.EducationSuggestion = "On average, college graduates earn $1 million more in earnings over their lifetime. The median yearly income gap between high school and college graduates is around $17,500. Maybe you should get a degree!";
-            //}
 
-            //ViewBag.HousingSuggestion = " ";
-            //if (lastInput.residentialstatus == "rent")
-            //{
-            //    if ((correspondingValueIncome / 40) > Int32.Parse(lastInput.grosserent))
-            //    {
-            //        ViewBag.HousingSuggestion = "You're spending too much on rent, have you looked anywhere less expensive?";
-            //    }
-            //}
+            ViewBag.EducationSuggestion = " ";
+            if (lastInput.collegeeducation == "DP02_0060E" || lastInput.collegeeducation == "DP02_0061E" || lastInput.collegeeducation == "DP02_0062E")
+            {
+                ViewBag.EducationSuggestion = "On average, college graduates earn $1 million more in earnings over their lifetime. The median yearly income gap between high school and college graduates is around $17,500. Maybe you should get a degree!";
+            }
+
+            ViewBag.HousingSuggestion = " ";
+            if (lastInput.residentialstatus == "rent")
+            {
+                if ((correspondingValueIncome / 40) < Int32.Parse(lastInput.grosserent))
+                {
+                    ViewBag.HousingSuggestion = "You're spending too much on rent, have you looked anywhere less expensive?";
+                }
+            }
 
             return View();
         }
