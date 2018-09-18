@@ -3,6 +3,136 @@
     ViewBag.Title = "NewState";
 }
 <br />
+
+@{ double oldint1 = Convert.ToDouble(ViewBag.PrevState1[1]);
+    double oldint2 = Convert.ToDouble(ViewBag.PrevState1[2]);
+    double oldint3 = Convert.ToDouble(ViewBag.PrevState2[27]);
+
+    double oldintm = Convert.ToDouble(ViewBag.PrevState1[22]);
+    double oldintmm = Convert.ToDouble(ViewBag.PrevState1[23]);
+
+    double oldpercent = Math.Round((oldint3 / (oldint1 + oldint2)) * 100, 0);
+
+    double oldindex1 = Convert.ToDouble(ViewBag.PrevState1[1]);
+    double oldindex2 = Convert.ToDouble(ViewBag.PrevState1[2]);
+
+    double oldUserGender = Convert.ToDouble(ViewBag.PrevState2[27])/*<<<<This is the user gender info*/;
+
+    double oldGenpercent = Math.Round((oldUserGender / (oldindex1 + oldindex2)) * 100, 2);
+
+    double oldindex3 = Convert.ToDouble(ViewBag.PrevState1[3]);
+    double oldindex4 = Convert.ToDouble(ViewBag.PrevState1[4]);
+    double oldindex5 = Convert.ToDouble(ViewBag.PrevState1[5]);
+    double oldindex6 = Convert.ToDouble(ViewBag.PrevState1[6]);
+    double oldindex7 = Convert.ToDouble(ViewBag.PrevState1[7]);
+    double oldindex8 = Convert.ToDouble(ViewBag.PrevState1[8]);
+    double oldindex9 = Convert.ToDouble(ViewBag.PrevState1[9]);
+    double oldindex10 = Convert.ToDouble(ViewBag.PrevState1[10]);
+    double oldindex11 = Convert.ToDouble(ViewBag.PrevState1[11]);
+
+    double oldUserAge = Convert.ToDouble(ViewBag.PrevState2[28]);  /**/
+
+    double oldAgepercent = Math.Round((oldUserAge / (oldindex3 + oldindex4 + oldindex5 + oldindex6 + oldindex7 + oldindex8 + oldindex9 + oldindex10 + oldindex11)) * 100, 2);
+
+    double oldindex12 = Convert.ToDouble(ViewBag.PrevState1[12]);
+    double oldindex13 = Convert.ToDouble(ViewBag.PrevState1[13]);
+    double oldindex14 = Convert.ToDouble(ViewBag.PrevState1[14]);
+    double oldindex15 = Convert.ToDouble(ViewBag.PrevState1[15]);
+    double oldindex16 = Convert.ToDouble(ViewBag.PrevState1[16]);
+    double oldindex17 = Convert.ToDouble(ViewBag.PrevState1[17]);
+    double oldindex18 = Convert.ToDouble(ViewBag.PrevState1[18]);
+    double oldindex19 = Convert.ToDouble(ViewBag.PrevState1[19]);
+    double oldindex20 = Convert.ToDouble(ViewBag.PrevState1[20]);
+    double oldindex21 = Convert.ToDouble(ViewBag.PrevState1[21]);
+    //double oldindex22 = Convert.ToDouble(ViewBag.PrevState1[22]);
+
+    double oldUserIncome = Convert.ToDouble(ViewBag.PrevState2[29]); /*<<<<This is the Income info*/;
+
+    double oldIncomepercent = Math.Round((oldUserIncome / (oldindex12 + oldindex13 + oldindex14 + oldindex15 + oldindex16 + oldindex17 + oldindex18 + oldindex19 + oldindex20 + oldindex21)) * 100, 2);
+
+    double oldrank = Math.Round((((((oldint1 + oldint2)) * oldGenpercent / 100) * oldAgepercent / 100) * oldIncomepercent / 100), 0); // builds the user rank overall for state
+
+    double oldtotalPop = (oldint1 + oldint2);
+
+    //double oldtotalEarnings = (ViewBag.IncomeValue * 1.45) * (79 - ViewBag.AgeValue);
+
+    double oldmaritalStatus = Convert.ToDouble(ViewBag.PrevState2[31]);
+
+    double oldMaritalPercent = Math.Round((oldmaritalStatus / (oldintm + oldintmm)) * 100, 2);
+
+    //education numbers:
+    double olduserEdu = Convert.ToDouble(ViewBag.PrevState2[29]);
+    double oldindex225 = Convert.ToDouble(ViewBag.PrevState2[1]);
+    double oldindex226 = Convert.ToDouble(ViewBag.PrevState2[2]);
+    double oldindex227 = Convert.ToDouble(ViewBag.PrevState2[3]);
+    double oldindex228 = Convert.ToDouble(ViewBag.PrevState2[4]);
+    double oldindex229 = Convert.ToDouble(ViewBag.PrevState2[5]);
+    double oldEdupercent = Math.Round((olduserEdu / (oldindex225 + oldindex226 + oldindex227 + oldindex228 + oldindex229)) * 100, 2);
+
+
+    //if( ViewBag.test2[30] == "DP02_0064E" || ViewBag.test2[30] == "DP02_0065E")
+    //{
+    //    totalEarnings += 17500 * (79 - UserAge);
+    //}
+
+
+}
+
+<h3>@ViewBag.userData.name in @ViewBag.PrevState1[0]</h3>
+
+<table class="table">
+    <tr><th>@ViewBag.userData.name</th><th>Your Info</th><th>Others Like You</th><th>Percentile You're In</th></tr>
+    <tr>
+        <td>Gender:</td>
+        <td>@ViewBag.GenderLabel</td>
+        <td>@ViewBag.PrevState2[27]</td>
+        <td>@oldGenpercent%</td>
+    </tr>
+    <tr>
+        <td>Age Bracket:</td>
+        <td>@ViewBag.AgeLabel</td>
+        <td>@ViewBag.PrevState2[28]</td>
+        <td>@oldAgepercent%</td>
+    </tr>
+    <tr>
+        <td>Income Bracket:</td>
+        <td>@ViewBag.IncomeLabel</td>
+        <td>@ViewBag.PrevState2[29]</td>
+        <td>@oldIncomepercent%</td>
+    </tr>
+    <tr>
+        <td>Education Level:</td>
+        <td>@ViewBag.educationLabels</td>
+        <td>@ViewBag.PrevState2[30]</td>
+        <td>@oldEdupercent%</td>
+    </tr>
+    <tr>
+        <td>Marital Status:</td>
+        <td>@ViewBag.marriageLabels</td>
+        <td>@ViewBag.PrevState2[31]</td>
+        <td>@oldMaritalPercent%</td>
+    </tr>
+    <tr>
+        <td>Your rank by State:</td>
+        <td>You rank #@oldrank.ToString("###,###,###,###")  of @oldtotalPop.ToString("###,###,###,###") in your state.</td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    <tr>
+        <td>Lifetime Earnings:</td>
+        <td>@*$@oldtotalEarnings.ToString("###,###,###,###")*@</td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<br />
+<br />
+@ViewBag.EducationSuggestion
+<br />
+<br />
+@ViewBag.HousingSuggestion
+
 @{ double int1 = Convert.ToDouble(ViewBag.test1[1]); double int2 = Convert.ToDouble(ViewBag.test1[2]); double int3 = Convert.ToDouble(ViewBag.test1[22]);
     double percent = Math.Round((int3 / (int1 + int2)) * 100, 0);
     double index1 = Convert.ToDouble(ViewBag.test1[1]); double index2 = Convert.ToDouble(ViewBag.test1[2]); double UserGender = Convert.ToDouble(ViewBag.test1[22])/*<<<<This is the user gender info*/;
@@ -15,7 +145,7 @@
     double totalPop = (int1 + int2);
     double totalEarnings = ((UserIncome * (65 - UserAge)));
 }
-<ul>
+@*<ul>
     <li id="male">Total Male: @ViewBag.test1[1]</li>
     <li id="female">Total Female: @ViewBag.test1[2]</li>
 </ul>
@@ -41,8 +171,8 @@
     <li>$100,000 to $149,999: @ViewBag.test1[19]</li>
     <li>$150,000 to $199,999: @ViewBag.test1[20]</li>
     <li>$200,000 or more: @ViewBag.test1[21]</li>
-</ul>
-<br />
+</ul>*@
+<h3>@ViewBag.userData.name in @ViewBag.test1[0]</h3>
 <table class="table">
     <tr><th>@ViewBag.userData.name</th><th>Your Info</th><th>Others Like You</th><th>Your Percentile</th></tr>
     <tr>
@@ -73,3 +203,58 @@
 <br />
 <br />
 <a href="/Home/Index">Go back to your initial results</a>
+<form action="/Home/NewState">
+    <label>Change your state?</label>    <select name="stateid" id="stateidAJ">
+        <option value="01" name="stateid">Alabama</option>
+        <option value="02" name="stateid">Alaska</option>
+        <option value="04" name="stateid">Arizona</option>
+        <option value="05" name="stateid">Arkansas</option>
+        <option value="06" name="stateid">California</option>
+        <option value="08" name="stateid">Colorado</option>
+        <option value="09" name="stateid">Connecticut</option>
+        <option value="10" name="stateid">Delaware</option>
+        <option value="12" name="stateid">Florida</option>
+        <option value="13" name="stateid">Georgia</option>
+        <option value="15" name="stateid">Hawaii</option>
+        <option value="16" name="stateid">Idaho</option>
+        <option value="17" name="stateid">Illinois</option>
+        <option value="18" name="stateid">Indiana</option>
+        <option value="19" name="stateid">Iowa</option>
+        <option value="20" name="stateid">Kansas</option>
+        <option value="21" name="stateid">Kentucky</option>
+        <option value="22" name="stateid">Louisiana</option>
+        <option value="23" name="stateid">Maine</option>
+        <option value="24" name="stateid">Maryland</option>
+        <option value="25" name="stateid">Massachusetts</option>
+        <option value="26" name="stateid">Michigan</option>
+        <option value="27" name="stateid">Minnesota</option>
+        <option value="28" name="stateid">Mississippi</option>
+        <option value="29" name="stateid">Missouri</option>
+        <option value="30" name="stateid">Montana</option>
+        <option value="31" name="stateid">Nebraska</option>
+        <option value="32" name="stateid">Nevada</option>
+        <option value="33" name="stateid">New Hampshire</option>
+        <option value="34" name="stateid">New Jersey</option>
+        <option value="35" name="stateid">New Mexico</option>
+        <option value="36" name="stateid">New York</option>
+        <option value="37" name="stateid">North Carolina</option>
+        <option value="38" name="stateid">North Dakota</option>
+        <option value="39" name="stateid">Ohio</option>
+        <option value="40" name="stateid">Oklahoma</option>
+        <option value="41" name="stateid">Oregon</option>
+        <option value="42" name="stateid">Pennsylvania</option>
+        <option value="44" name="stateid">Rhode Island</option>
+        <option value="45" name="stateid">South Carolina</option>
+        <option value="46" name="stateid">South Dakota</option>
+        <option value="47" name="stateid">Tennessee</option>
+        <option value="48" name="stateid">Texas</option>
+        <option value="49" name="stateid">Utah</option>
+        <option value="50" name="stateid">Vermont</option>
+        <option value="51" name="stateid">Virginia</option>
+        <option value="53" name="stateid">Washington</option>
+        <option value="54" name="stateid">West Virginia</option>
+        <option value="55" name="stateid">Wisconsin</option>
+        <option value="56" name="stateid">Wyoming</option>
+    </select>
+    <input type="submit" value="Change!" id="changeState" />
+</form>

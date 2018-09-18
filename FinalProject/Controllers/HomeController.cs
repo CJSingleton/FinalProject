@@ -139,6 +139,7 @@ namespace FinalProject.Controllers
                     ViewBag.HousingSuggestion = "You're spending too much on rent! Have you looked anywhere less expensive?";
                 }
             }
+
             
             double kidCost = 237095.50;
             string kidNo = "";
@@ -157,11 +158,19 @@ namespace FinalProject.Controllers
                     
             }
 
+
+            Session["1"] = ViewBag.test1;
+            Session["2"] = ViewBag.test2;
+
             return View();
         }
         
         public ActionResult NewState(string stateid)
         {
+            //pulled data from cookies and populated 2 new viewbags with previous
+            ViewBag.PrevState1 = Session["1"];
+            ViewBag.PrevState2 = Session["2"];
+
             HowsLifeEntities ORM = new HowsLifeEntities();
             UserInput lastInput = ORM.UserInputs.ToList()[ORM.UserInputs.ToList().Count - 1];
             ViewBag.userInput = lastInput;

@@ -28,5 +28,6 @@ namespace FinalProject.Models
         public string grosserent { get; set; }
         public string mortgagecost { get; set; }
         public string monthlyexpenses { get; set; }
+        public Nullable<int> numberofkids { get; set; }
     }
 }
