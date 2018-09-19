@@ -59,6 +59,9 @@ namespace FinalProject.Controllers
             int codeIndexIncome = incomeCodes.IndexOf(lastInput.incomerange);
             string correspondingLabelIncome = incomeLabels[codeIndexIncome];
             int correspondingValueIncome = incomeValues[codeIndexIncome];
+            ViewBag.IncomeCodes = incomeCodes;
+            ViewBag.IncomeLabels = incomeLabels;
+            ViewBag.UserIncomeCode = lastInput.incomerange;
             ViewBag.IncomeValue = correspondingValueIncome;
             ViewBag.IncomeLabel = correspondingLabelIncome;
 
@@ -394,6 +397,21 @@ namespace FinalProject.Controllers
             UserInput lastInput = ORM.UserInputs.ToList()[ORM.UserInputs.ToList().Count - 1];
             ViewBag.userData = lastInput;
 
+            List<string> stateCodes = new List<string> { "01", "02", "04", "05", "06", "08", "09", "10", "12", "13", "15", "16", "17", "18", "19", "20", "21", "22", "23",
+                                                         "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42",
+                                                         "44", "45", "46", "47", "48", "49", "50", "51", "53", "54", "55", "56"};
+            List<string> stateLabels = new List<string> { "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+                                                          "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusettes",
+                                                          "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico",
+                                                          "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+                                                          "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virgina", "Washington", "West Virginia", "Wisconsin", "Wyoming"};
+            int codeIndexState = stateCodes.IndexOf(lastInput.state);
+            string correspondingLabelState = stateLabels[codeIndexState];
+            ViewBag.StateCodes = stateCodes;
+            ViewBag.StateLabels = stateLabels;
+            ViewBag.UserStateCode = lastInput.state;
+            ViewBag.UserStateLabel = correspondingLabelState;
+
             List<string> ageCodes = new List<string> { "DP05_0004E", "DP05_0005E", "DP05_0006E", "DP05_0007E", "DP05_0008E", "DP05_0009E", "DP05_0010E", "DP05_0011E", "DP05_0012E", "DP05_0013E", "DP05_0014E", "DP05_0015E", "DP05_0016E" };
             List<string> ageLabels = new List<string> { "Under 5 years", "5 to 9 years", "10 to 14 years", "15 to 19 years", "20 to 24 years", "25 to 34 years", "35 to 44 years", "45 to 54 years", "55 to 59 years", "60 to 64 years", "65 to 74 years", "75 to 84 years", "85 years and over" };
             List<int> ageValues = new List<int> { 4, 9, 14, 19, 24, 34, 44, 54, 59, 64, 74, 84, 90 };
@@ -419,6 +437,9 @@ namespace FinalProject.Controllers
             int codeIndexIncome = incomeCodes.IndexOf(lastInput.incomerange);
             string correspondingLabelIncome = incomeLabels[codeIndexIncome];
             int correspondingValueIncome = incomeValues[codeIndexIncome];
+            ViewBag.IncomeCodes = incomeCodes;
+            ViewBag.IncomeLabels = incomeLabels;
+            ViewBag.UserIncomeCode = lastInput.incomerange;
             ViewBag.IncomeValue = correspondingValueIncome;
             ViewBag.IncomeLabel = correspondingLabelIncome;
 
