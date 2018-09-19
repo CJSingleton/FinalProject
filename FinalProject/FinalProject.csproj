@@ -248,6 +248,7 @@
     <Content Include="Views\Home\QuestionsTemp.cshtml" />
     <Content Include="Views\Home\TempOut.cshtml" />
     <Content Include="Views\Home\NewState.cshtml" />
+    <Content Include="Views\Home\NewIncome.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,38 +1,149 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "NewIncome";
+}
+<br />
+
+@{ double oldint1 = Convert.ToDouble(ViewBag.PrevState1[1]);
+    double oldint2 = Convert.ToDouble(ViewBag.PrevState1[2]);
+    double oldint3 = Convert.ToDouble(ViewBag.PrevState2[27]);
+
+    double oldintm = Convert.ToDouble(ViewBag.PrevState1[22]);
+    double oldintmm = Convert.ToDouble(ViewBag.PrevState1[23]);
+
+    double oldpercent = Math.Round((oldint3 / (oldint1 + oldint2)) * 100, 0);
+
+    double oldindex1 = Convert.ToDouble(ViewBag.PrevState1[1]);
+    double oldindex2 = Convert.ToDouble(ViewBag.PrevState1[2]);
+
+    double oldUserGender = Convert.ToDouble(ViewBag.PrevState2[27])/*<<<<This is the user gender info*/;
+
+    double oldGenpercent = Math.Round((oldUserGender / (oldindex1 + oldindex2)) * 100, 2);
+
+    double oldindex3 = Convert.ToDouble(ViewBag.PrevState1[3]);
+    double oldindex4 = Convert.ToDouble(ViewBag.PrevState1[4]);
+    double oldindex5 = Convert.ToDouble(ViewBag.PrevState1[5]);
+    double oldindex6 = Convert.ToDouble(ViewBag.PrevState1[6]);
+    double oldindex7 = Convert.ToDouble(ViewBag.PrevState1[7]);
+    double oldindex8 = Convert.ToDouble(ViewBag.PrevState1[8]);
+    double oldindex9 = Convert.ToDouble(ViewBag.PrevState1[9]);
+    double oldindex10 = Convert.ToDouble(ViewBag.PrevState1[10]);
+    double oldindex11 = Convert.ToDouble(ViewBag.PrevState1[11]);
+
+    double oldUserAge = Convert.ToDouble(ViewBag.PrevState2[28]);  /**/
+
+    double oldAgepercent = Math.Round((oldUserAge / (oldindex3 + oldindex4 + oldindex5 + oldindex6 + oldindex7 + oldindex8 + oldindex9 + oldindex10 + oldindex11)) * 100, 2);
+
+    double oldindex12 = Convert.ToDouble(ViewBag.PrevState1[12]);
+    double oldindex13 = Convert.ToDouble(ViewBag.PrevState1[13]);
+    double oldindex14 = Convert.ToDouble(ViewBag.PrevState1[14]);
+    double oldindex15 = Convert.ToDouble(ViewBag.PrevState1[15]);
+    double oldindex16 = Convert.ToDouble(ViewBag.PrevState1[16]);
+    double oldindex17 = Convert.ToDouble(ViewBag.PrevState1[17]);
+    double oldindex18 = Convert.ToDouble(ViewBag.PrevState1[18]);
+    double oldindex19 = Convert.ToDouble(ViewBag.PrevState1[19]);
+    double oldindex20 = Convert.ToDouble(ViewBag.PrevState1[20]);
+    double oldindex21 = Convert.ToDouble(ViewBag.PrevState1[21]);
+    //double oldindex22 = Convert.ToDouble(ViewBag.PrevState1[22]);
+
+    double oldUserIncome = Convert.ToDouble(ViewBag.PrevState2[29]); /*<<<<This is the Income info*/;
+
+    double oldIncomepercent = Math.Round((oldUserIncome / (oldindex12 + oldindex13 + oldindex14 + oldindex15 + oldindex16 + oldindex17 + oldindex18 + oldindex19 + oldindex20 + oldindex21)) * 100, 2);
+
+    double oldrank = Math.Round((((((oldint1 + oldint2)) * oldGenpercent / 100) * oldAgepercent / 100) * oldIncomepercent / 100), 0); // builds the user rank overall for state
+
+    double oldtotalPop = (oldint1 + oldint2);
+
+    double oldtotalEarnings = (ViewBag.IncomeValue * 1.45) * (79 - ViewBag.AgeValue);
+
+    double oldmaritalStatus = Convert.ToDouble(ViewBag.PrevState2[31]);
+    double oldMaritalPercent = Math.Round((oldmaritalStatus / (oldintm + oldintmm)) * 100, 2);
+
+    //education numbers:
+    double olduserEdu = Convert.ToDouble(ViewBag.PrevState2[29]);
+    double oldindex225 = Convert.ToDouble(ViewBag.PrevState2[1]);
+    double oldindex226 = Convert.ToDouble(ViewBag.PrevState2[2]);
+    double oldindex227 = Convert.ToDouble(ViewBag.PrevState2[3]);
+    double oldindex228 = Convert.ToDouble(ViewBag.PrevState2[4]);
+    double oldindex229 = Convert.ToDouble(ViewBag.PrevState2[5]);
+    double oldEdupercent = Math.Round((olduserEdu / (oldindex225 + oldindex226 + oldindex227 + oldindex228 + oldindex229)) * 100, 2);
+
+    //kid numbers
+    double olduserKids = Convert.ToDouble(ViewBag.PrevState2[32]);
+    double oldkidIndex = Convert.ToDouble(ViewBag.PrevState1[24]);
+    double oldnoKidIndex = Convert.ToDouble(ViewBag.PrevState1[24]) - Convert.ToDouble(ViewBag.test1[25]);
+    double oldkidPercent = Math.Round((olduserKids / oldkidIndex) * 100, 2);
+
+
+    //if( ViewBag.test2[30] == "DP02_0064E" || ViewBag.test2[30] == "DP02_0065E")
+    //{
+    //    totalEarnings += 17500 * (79 - UserAge);
+    //}
+
+
 }
 
+<h3>@ViewBag.userData.name in @ViewBag.PrevState1[0]</h3>
 
+<table class="table">
+    <tr><th>@ViewBag.userData.name</th><th>Your Info</th><th>Others Like You</th><th>Percentile You're In</th></tr>
+    <tr>
+        <td>Gender:</td>
+        <td>@ViewBag.GenderLabel</td>
+        <td>@ViewBag.PrevState2[27]</td>
+        <td>@oldGenpercent%</td>
+    </tr>
+    <tr>
+        <td>Age Bracket:</td>
+        <td>@ViewBag.AgeLabel</td>
+        <td>@ViewBag.PrevState2[28]</td>
+        <td>@oldAgepercent%</td>
+    </tr>
+    <tr>
+        <td>Income Bracket:</td>
+        <td>@ViewBag.IncomeLabel</td>
+        <td>@ViewBag.PrevState2[29]</td>
+        <td>@oldIncomepercent%</td>
+    </tr>
+    <tr>
+        <td>Education Level:</td>
+        <td>@ViewBag.educationLabels</td>
+        <td>@ViewBag.PrevState2[30]</td>
+        <td>@oldEdupercent%</td>
+    </tr>
+    <tr>
+    <tr>
+        <td>Children:</td>
+        <td>@ViewBag.userKidCodeLabel</td>
+        <td>@ViewBag.test2[32]</td>
+        <td>@oldkidPercent%</td>
+    </tr>
+    <tr>
+        <td>Marital Status:</td>
+        <td>@ViewBag.marriageLabels</td>
+        <td>@ViewBag.PrevState2[31]</td>
+        <td>@oldMaritalPercent%</td>
+    </tr>
+    <tr>
+        <td>Your rank by State:</td>
+        <td>You rank #@oldrank.ToString("###,###,###,###")  of @oldtotalPop.ToString("###,###,###,###") in your state.</td>
+        <td></td>
+        <td></td>
+    </tr>
 
-@*<ul>
-        <li>Total Male: @ViewBag.test1[1]</li>
-        <li>Total Female: @ViewBag.test1[2]</li>
-    </ul>
-    <ul>
-        <li>20 to 24 years: @ViewBag.test1[3]</li>
-        <li>25 to 34 years: @ViewBag.test1[4]</li>
-        <li>35 to 44 years: @ViewBag.test1[5]</li>
-        <li>45 to 54 years: @ViewBag.test1[6]</li>
-        <li>55 to 59 years: @ViewBag.test1[7]</li>
-        <li>60 to 64 years: @ViewBag.test1[8]</li>
-        <li>65 to 74 years: @ViewBag.test1[9]</li>
-        <li>75 to 84 years: @ViewBag.test1[10]</li>
-        <li>85 years and over: @ViewBag.test1[11]</li>
-    </ul>
-    <ul>
-        <li>Less than $10,000: @ViewBag.test1[12]</li>
-        <li>$10,000 to $14,999: @ViewBag.test1[13]</li>
-        <li>$15,000 to $24,999: @ViewBag.test1[14]</li>
-        <li>$25,000 to $34,999: @ViewBag.test1[15]</li>
-        <li>$35,000 to $49,999: @ViewBag.test1[16]</li>
-        <li>$50,000 to $74,999: @ViewBag.test1[17]</li>
-        <li>$75,000 to $99,999: @ViewBag.test1[18]</li>
-        <li>$100,000 to $149,999: @ViewBag.test1[19]</li>
-        <li>$150,000 to $199,999: @ViewBag.test1[20]</li>
-        <li>$200,000 or more: @ViewBag.test1[21]</li>
-    </ul>
-    <br />*@
-
+    <tr>
+        <td>Lifetime Earnings:</td>
+        <td>$@oldtotalEarnings.ToString("###,###,###,###")</td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<br />
+<br />
+@ViewBag.EducationSuggestion
+<br />
+<br />
+@ViewBag.HousingSuggestion
 
 @{ double int1 = Convert.ToDouble(ViewBag.test1[1]);
     double int2 = Convert.ToDouble(ViewBag.test1[2]);
@@ -88,23 +199,11 @@
     double index229 = Convert.ToDouble(ViewBag.test2[5]);
     double Edupercent = Math.Round((userEdu / (index225 + index226 + index227 + index228 + index229)) * 100, 2);
 
-
     //kid numbers
-
-    //double kidindex1 = Convert.ToDouble(ViewBag.test1[24]);
-    //double kidindex2 = Convert.ToDouble(ViewBag.test1[25]);
-    //double userkids = Convert.ToDouble(ViewBag.test2[32]);
-    //double KidsPercent = Math.Round((UserGender / (kidindex1 + kidindex2)) * 100, 2);
-
-    double kidstotal = Convert.ToDouble(ViewBag.test1[24]);
+    double userKids = Convert.ToDouble(ViewBag.test2[32]);
+    double kidIndex = Convert.ToDouble(ViewBag.test1[24]);
     double noKidIndex = Convert.ToDouble(ViewBag.test1[24]) - Convert.ToDouble(ViewBag.test1[25]);
-    double userkids = Convert.ToDouble(ViewBag.test2[32]);
-    if (ViewBag.test2[32] == ViewBag.test1[24])
-    {
-        userkids = noKidIndex;
-    }
-    double kidPercent = Math.Round((userkids / kidstotal) * 100, 2);
-
+    double kidPercent = Math.Round((userKids / kidIndex) * 100, 2);
 
     //if( ViewBag.test2[30] == "DP02_0064E" || ViewBag.test2[30] == "DP02_0065E")
     //{
@@ -112,7 +211,7 @@
     //}
 }
 
-<h3>Name: @ViewBag.userData.name</h3>
+<h3>@ViewBag.userData.name in @ViewBag.test1[0]</h3>
 
 <table class="table">
     <tr><th>Category</th><th>Your Info</th><th>Others Like You</th><th>Percentile You're In</th></tr>
@@ -130,7 +229,7 @@
     </tr>
     <tr>
         <td>Income Bracket:</td>
-        <td>@ViewBag.IncomeLabel</td>
+        <td>@ViewBag.NewIncomeLabel</td>
         <td>@ViewBag.test2[29]</td>
         <td>@Incomepercent%</td>
     </tr>
@@ -166,21 +265,10 @@
     </tr>
 </table>
 <br />
-<table>
-    <tr><th>Suggestions:</th></tr>
-    <tr>
-        <td>
-            <ol>
-                <li>@ViewBag.EducationSuggestion</li>
-                <li>@ViewBag.HousingSuggestion</li>
-                <li>@ViewBag.KidsSuggestion</li>
-            </ol>
-        </td>
-    </tr>
-</table>
 <br />
+<a href="/Home/Index">Go back to your initial results</a>
 <form action="/Home/NewState">
-    <label>Change your state?</label>    <select name="stateid">
+    <label>Change your state?</label>    <select name="stateid" id="stateidAJ">
         <option value="01" name="stateid">Alabama</option>
         <option value="02" name="stateid">Alaska</option>
         <option value="04" name="stateid">Arizona</option>
@@ -232,31 +320,5 @@
         <option value="55" name="stateid">Wisconsin</option>
         <option value="56" name="stateid">Wyoming</option>
     </select>
-    <input type="submit" value="Change!" />
-</form>
-
-<form action="/Home/NewIncome">
-    <label>Change your Income?</label>   
-    <select name="incomerange">
-        <option name="incomerange" value="DP03_0052E"> Less than $10K
-        
-        <option name="incomerange"  value="DP03_0053E"> $10,000-$14,999
-        
-        <option name="incomerange"  value="DP03_0054E"> $15,000-$24,999
-        
-        <option name="incomerange"  value="DP03_0055E"> $25,000-$34,999
-        
-        <option name="incomerange"  value="DP03_0056E" checked> $35,000-$49,999
-        
-        <option name="incomerange"  value="DP03_0057E"> $50,000-$74,999
-        
-        <option name="incomerange"  value="DP03_0058E"> $75,000-$99,999
-        
-        <option name="incomerange"  value="DP03_0059E"> $100,000-$149,999
-        
-        <option name="incomerange"  value="DP03_0060E"> $150,000-$199,999
-        
-        <option name="incomerange"  value="DP03_0061E"> More than $200K +
-    </select>
-    <input type="submit" value="Change!" />
+    <input type="submit" value="Change!" id="changeState" />
 </form>
