@@ -234,6 +234,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Content\image\Chris%27 face.jpg" />
+    <Content Include="Content\image\Jesse%27s Face.jpg" />
+    <Content Include="Content\image\My face.jpg" />
+    <Content Include="Content\image\Will.jpg" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
