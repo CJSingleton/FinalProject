@@ -6,6 +6,7 @@
     body {
         overflow-x: hidden;
     }
+
     .w3-border {
         height: 5%;
         width: 50%;
@@ -19,6 +20,7 @@
     .w3-red {
         background-color: red;
     }
+
     ul, menu, dir {
         display: block;
         list-style-type: disc;
@@ -158,35 +160,35 @@
         <hr style="width:40%; border:1px solid; @*text-align:center;*@" />
         <div id="AgechartContainer" style="height: 300px; width: 100%;"></div>
     </li>
-<li style="width:380px;  ">
-    <img class="center-block" style="width:80px; height:80px;" src="https://www.shareicon.net/download/2016/07/30/804328_man_512x512.png" />
-    <hr style="width:40%; border:1px solid; @*text-align:center;*@" />
-    <div id="SexchartContainer" style="height: 300px; width: 100%;"></div>
+    <li style="width:380px;  ">
+        <img class="center-block" style="width:80px; height:80px;" src="https://www.shareicon.net/download/2016/07/30/804328_man_512x512.png" />
+        <hr style="width:40%; border:1px solid; @*text-align:center;*@" />
+        <div id="SexchartContainer" style="height: 300px; width: 100%;"></div>
 
-</li>
-<li style="width:380px; ">
-    <img class="center-block"  style="width:80px; height:110px;" src="http://bankhelpline.com/img/save.png" />
-    <hr style="width:40%; border:1px solid; @*text-align:center;*@" />
-    <div id="IncomechartContainer" style="height: 300px; width: 100%;"></div>
-</li>
+    </li>
+    <li style="width:380px; ">
+        <img class="center-block" style="width:80px; height:110px;" src="http://bankhelpline.com/img/save.png" />
+        <hr style="width:40%; border:1px solid; @*text-align:center;*@" />
+        <div id="IncomechartContainer" style="height: 300px; width: 100%;"></div>
+    </li>
 </ul>
 @*<div class="row">
-    <div class="col-sm-4">
-        <img class="center-block" style="width:80px; height:100px;" src="https://png2.kisspng.com/20180309/qke/kisspng-old-age-download-icon-help-the-old-man-across-the-street-5aa29d192e6bc6.8517958515206064891901.png" />
-        <hr style="width:40%; border:1px solid;" />
-        <div id="AgechartContainer" style="height: 300px; width: 100%;"></div>
-    </div>
-    <div class="col-sm-4">
-        <img class="center-block" style="width:80px; height:110px;" src="http://bankhelpline.com/img/save.png" />
-        <hr style="width:40%; border:1px solid; />
-        <div id="IncomechartContainer" style="height: 300px; width: 100%;"></div>
-    </div>
-    <div class="col-sm-4">
-        <img class="center-block" style="width:80px; height:110px;" src="http://bankhelpline.com/img/save.png" />
-        <hr style="width:40%; border:1px solid;  />
-        <div id="IncomechartContainer" style="height: 300px; width: 100%;"></div>
-    </div>
-</div>*@
+        <div class="col-sm-4">
+            <img class="center-block" style="width:80px; height:100px;" src="https://png2.kisspng.com/20180309/qke/kisspng-old-age-download-icon-help-the-old-man-across-the-street-5aa29d192e6bc6.8517958515206064891901.png" />
+            <hr style="width:40%; border:1px solid;" />
+            <div id="AgechartContainer" style="height: 300px; width: 100%;"></div>
+        </div>
+        <div class="col-sm-4">
+            <img class="center-block" style="width:80px; height:110px;" src="http://bankhelpline.com/img/save.png" />
+            <hr style="width:40%; border:1px solid; />
+            <div id="IncomechartContainer" style="height: 300px; width: 100%;"></div>
+        </div>
+        <div class="col-sm-4">
+            <img class="center-block" style="width:80px; height:110px;" src="http://bankhelpline.com/img/save.png" />
+            <hr style="width:40%; border:1px solid;  />
+            <div id="IncomechartContainer" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>*@
 <br />
 @*<ul>
         <li>Total Male: @ViewBag.test1[1]</li>
@@ -350,30 +352,24 @@
     </tr>
 </table>
 <br />
-<table>
-    <tr><th>Suggestions:</th></tr>
-    <tr>
-        <td>
-            <ol>
-                <li>@ViewBag.EducationSuggestion</li>
-                <li>@ViewBag.HousingSuggestion</li>
-                <li>@ViewBag.KidsSuggestion</li>
-                <li>@ViewBag.StateSuggestion1</li>
-                <li>@ViewBag.StateSuggestion2</li>
-                <li>@ViewBag.StateSuggestion3</li>
-                <li>@ViewBag.StateSuggestion4</li>
-            </ol>
-        </td>
-    </tr>
-</table>
+<div style="background-color:aquamarine;padding: 4px 7px 2px 4px;">
+    <p style="font:icon">@ViewBag.EducationSuggestion</p>
+    <p style="font:icon">@ViewBag.HousingSuggestion</p>
+    <p style="font:icon">@ViewBag.KidsSuggestion</p>
+    <p style="font:icon">@ViewBag.StateSuggestion1</p>
+    <p style="font:icon">@ViewBag.StateSuggestion2</p>
+    <p style="font:icon">@ViewBag.StateSuggestion3</p>
+    <p style="font:icon">@ViewBag.StateSuggestion4</p>
+</div>
 <br />
-
 <form action="/Home/NewIncome">
+
+    <label>Change your State?</label>
     <select name="stateid">
-         @for (int i = 0; i < 50; i++)
-         {
-             if (ViewBag.StateCodes[i] == ViewBag.UserStateCode)
-             {
+        @for (int i = 0; i < 50; i++)
+        {
+            if (ViewBag.StateCodes[i] == ViewBag.UserStateCode)
+            {
                 <option value="@ViewBag.StateCodes[i]" selected>@ViewBag.StateLabels[i]</option>
             }
             else
@@ -381,7 +377,7 @@
                 <option value="@ViewBag.StateCodes[i]">@ViewBag.StateLabels[i]</option>
             }
 
-          }
+        }
     </select>
     <label>Change your Income?</label>
     <select name="incomerange">
@@ -398,6 +394,6 @@
 
         }
     </select>
-    <input type="submit" value="Change!" />
+    <input type="submit" value="Compare!" />
 </form>
 

@@ -244,7 +244,7 @@
 <h3>@ViewBag.userData.name in @ViewBag.PrevState1[0]</h3>
 
 <table class="table">
-    <tr><th>@ViewBag.userData.name</th><th>Your Info</th><th>Others Like You</th><th>Percentile You're In</th></tr>
+    <tr><th>@ViewBag.userData.name</th><th>Your Info</th><th>Others Like You</th><th>Percent in bracket</th></tr>
     <tr>
         <td>Gender:</td>
         <td>@ViewBag.GenderLabel</td>
@@ -392,7 +392,7 @@
 
 
 <table class="table">
-    <tr><th>Category</th><th>Your Info</th><th>Others Like You</th><th>Percentile You're In</th></tr>
+    <tr><th>Category</th><th>Your Info</th><th>Others Like You</th><th>Percent in bracket</th></tr>
     <tr>
         <td>Gender:</td>
         <td>@ViewBag.GenderLabel</td>
@@ -418,17 +418,18 @@
         <td>@Edupercent%</td>
     </tr>
     <tr>
-        <td>Marital Status:</td>
-        <td>@ViewBag.marriageLabels</td>
-        <td>@ViewBag.test2[31]</td>
-        <td>@MaritalPercent%</td>
-    </tr>
-    <tr>
         <td>Children:</td>
         <td>@ViewBag.userKidCodeLabel</td>
         <td>@ViewBag.test2[32]</td>
         <td>@kidPercent%</td>
     </tr>
+    <tr>
+        <td>Marital Status:</td>
+        <td>@ViewBag.marriageLabels</td>
+        <td>@ViewBag.test2[31]</td>
+        <td>@MaritalPercent%</td>
+    </tr>
+
     <tr>
         <td>Your rank by State:</td>
         <td>You rank #@rank.ToString("###,###,###,###") of @totalPop.ToString("###,###,###,###") in your state.</td>
@@ -529,7 +530,7 @@
 
         }
     </select>
-    <input type="submit" value="Change!" />
+    <input type="submit" value="Compare!" />
 </form>
 
 <a href="/Home/Index">Go back to your initial results</a>

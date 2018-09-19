@@ -146,7 +146,7 @@ namespace FinalProject.Controllers
             ViewBag.EducationSuggestion = " ";
             if (lastInput.collegeeducation == "DP02_0060E" || lastInput.collegeeducation == "DP02_0061E" || lastInput.collegeeducation == "DP02_0062E")
             {
-                ViewBag.EducationSuggestion = "On average, college graduates earn $1 million more in earnings over their lifetime. The median yearly income gap between high school and college graduates is around $17,500. Maybe you should get a degree!";
+                ViewBag.EducationSuggestion = "*On average, college graduates earn $1 million more in earnings over their lifetime. The median yearly income gap between high school and college graduates is around $17,500. Maybe you should get a degree!";
             }
 
             ViewBag.HousingSuggestion = " ";
@@ -154,7 +154,7 @@ namespace FinalProject.Controllers
             {
                 if ((correspondingValueIncome / 12) / 3 < Int32.Parse(lastInput.grosserent))
                 {
-                    ViewBag.HousingSuggestion = "Based on our 1/3 rule, you're spending too much on rent!";
+                    ViewBag.HousingSuggestion = "*Based on our 1/3 rule, you're spending too much on rent!";
                 }
             }
 
@@ -162,7 +162,7 @@ namespace FinalProject.Controllers
             {
                 if((correspondingValueIncome / 12) / 3 < Int32.Parse(lastInput.grosserent))
                 {
-                    ViewBag.HousingSuggestion = "Based on our 1/3 rule, you're spending too much on your mortgage!";
+                    ViewBag.HousingSuggestion = "*Based on our 1/3 rule, you're spending too much on your mortgage!";
                 }
             }
 
@@ -171,7 +171,7 @@ namespace FinalProject.Controllers
             {
                 List<string> states = new List<string> { "West Virginia", "Arkansas", "Mississippi"};
                 Random rnd = new Random();
-                ViewBag.StateSuggestion1 = "Based on your income you would do better in " + states[rnd.Next(1, 3)];
+                ViewBag.StateSuggestion1 = "*Based on your income you would do better in " + states[rnd.Next(1, 3)];
             }
 
             ViewBag.StateSuggestion2 = " ";
@@ -179,14 +179,14 @@ namespace FinalProject.Controllers
             {
                 List<string> states = new List<string> { "Rhode Island", "Delaware", "Alabama" };
                 Random rnd = new Random();
-                ViewBag.StateSuggestion2 = "Based on how many girls you're not in a relationship with, you should live in " + states[rnd.Next(1, 3)];
+                ViewBag.StateSuggestion2 = "*Based on how many girls you're not in a relationship with, you should live in " + states[rnd.Next(1, 3)];
             }
 
             if (lastInput.maritalstatus == "DP02_0010E" && lastInput.gender == "DP05_0003E")
             {
                 List<string> states = new List<string> { "Alaska", "North Dakota" };
                 Random rnd = new Random();
-                ViewBag.StateSuggestion2 = "There are a lot of dudes in " + states[rnd.Next(1,2)];
+                ViewBag.StateSuggestion2 = "*There are a lot of dudes in " + states[rnd.Next(1,2)];
             }
 
             ViewBag.StateSuggestion3 = " ";
@@ -194,14 +194,14 @@ namespace FinalProject.Controllers
             {
                 List<string> states = new List<string> { "Toledo, Ohio.. on second thought, move to Memphis or something, no one likes Ohio", "Glendale, Arizona", "Kansas City, Missouri" };
                 Random rnd = new Random();
-                ViewBag.StateSuggestion3 = "For lower rent you could move to " + states[rnd.Next(1,3)];
+                ViewBag.StateSuggestion3 = "*For lower rent you could move to " + states[rnd.Next(1,3)];
             }
 
             if(lastInput.residentialstatus == "own" && (correspondingValueIncome / 12) / 3 < Int32.Parse(lastInput.grosserent))
             {
                 List<string> states = new List<string> { "Rhode Island", "Connecticut", "Nevada" };
                 Random rnd = new Random();
-                ViewBag.StateSuggestion3 = "For lower average mortgage rates you could move to " + states[rnd.Next(1, 3)];
+                ViewBag.StateSuggestion3 = "*For lower average mortgage rates you could move to " + states[rnd.Next(1, 3)];
             }  
 
             ViewBag.StateSuggestion4 = " ";
@@ -209,7 +209,7 @@ namespace FinalProject.Controllers
             {
                 List<string> states = new List<string> { "Mississippi", "West Virginia", "Louisiana" };
                 Random rnd = new Random();
-                ViewBag.StateSuggestion4 = "If you want to be one of the most educated people in the state you should move to " + states[rnd.Next(1,3)];
+                ViewBag.StateSuggestion4 = "*If you want to be one of the most educated people in the state you should move to " + states[rnd.Next(1,3)];
             }
 
             double kidCost = 237095.50;
@@ -225,7 +225,7 @@ namespace FinalProject.Controllers
             ViewBag.KidsSuggestion = "";
             if(lastInput.numberofkids > 0)
             {
-                ViewBag.KidsSuggestion = $"Research estimates that your {lastInput.numberofkids} {kidNo} will cost {lastInput.numberofkids * kidCost:C} to raise to the age of 18. Kids are expensive!";
+                ViewBag.KidsSuggestion = $"*Research estimates that your {lastInput.numberofkids} {kidNo} will cost {lastInput.numberofkids * kidCost:C} to raise to the age of 18. Kids are expensive!";
                     
             }
 
@@ -530,7 +530,7 @@ namespace FinalProject.Controllers
             ViewBag.EducationSuggestion = " ";
             if (lastInput.collegeeducation == "DP02_0060E" || lastInput.collegeeducation == "DP02_0061E" || lastInput.collegeeducation == "DP02_0062E")
             {
-                ViewBag.EducationSuggestion = "On average, college graduates earn $1 million more in earnings over their lifetime. The median yearly income gap between high school and college graduates is around $17,500. Maybe you should get a degree!";
+                ViewBag.EducationSuggestion = "*On average, college graduates earn $1 million more in earnings over their lifetime. The median yearly income gap between high school and college graduates is around $17,500. Maybe you should get a degree!";
             }
 
             ViewBag.HousingSuggestion = " ";
@@ -538,7 +538,7 @@ namespace FinalProject.Controllers
             {
                 if ((correspondingValueIncome / 40) < Int32.Parse(lastInput.grosserent))
                 {
-                    ViewBag.HousingSuggestion = "You're spending too much on rent! Have you looked anywhere less expensive?";
+                    ViewBag.HousingSuggestion = "*You're spending too much on rent! Have you looked anywhere less expensive?";
                 }
             }
 
@@ -556,7 +556,7 @@ namespace FinalProject.Controllers
             ViewBag.KidsSuggestion = "";
             if (lastInput.numberofkids > 0)
             {
-                ViewBag.KidsSuggestion = $"Research estimates that your {lastInput.numberofkids} {kidNo} will cost {lastInput.numberofkids * kidCost:C} to raise to the age of 18. Kids are expensive!";
+                ViewBag.KidsSuggestion = $"*Research estimates that your {lastInput.numberofkids} {kidNo} will cost {lastInput.numberofkids * kidCost:C} to raise to the age of 18. Kids are expensive!";
 
             }
             return View();
