@@ -80,8 +80,16 @@
     //    totalEarnings += 17500 * (79 - UserAge);
     //}
 
-
+    double kidstotal = Convert.ToDouble(ViewBag.test1[24]);
+    double noKidIndex = Convert.ToDouble(ViewBag.test1[24]) - Convert.ToDouble(ViewBag.test1[25]);
+    double userkids = Convert.ToDouble(ViewBag.test2[32]);
+    if (ViewBag.test2[32] == ViewBag.test1[24])
+    {
+        userkids = noKidIndex;
+    }
+    double kidPercent = Math.Round((userkids / kidstotal) * 100, 2);
 }
+
 
 <h3>@ViewBag.userData.name in @ViewBag.PrevState1[0]</h3>
 
@@ -116,7 +124,7 @@
         <td>Children:</td>
         <td>@ViewBag.userKidCodeLabel</td>
         <td>@ViewBag.test2[32]</td>
-        <td>@oldkidPercent%</td>
+        <td>@kidPercent%</td>
     </tr>
     <tr>
         <td>Marital Status:</td>
@@ -186,7 +194,7 @@
     double rank = Math.Round((((((int1 + int2)) * Genpercent / 100) * Agepercent / 100) * Incomepercent / 100), 0); // builds the user rank overall for state
 
     double totalPop = (int1 + int2);
-    double totalEarnings = (ViewBag.IncomeValue * 1.45) * (79 - ViewBag.AgeValue);
+    double totalEarnings = (ViewBag.NewIncomeValue * 1.45) * (79 - ViewBag.AgeValue);
     double maritalStatus = Convert.ToDouble(ViewBag.test2[31]);
     double MaritalPercent = Math.Round((maritalStatus / (intm + intmm)) * 100, 2);
 
@@ -202,8 +210,6 @@
     //kid numbers
     double userKids = Convert.ToDouble(ViewBag.test2[32]);
     double kidIndex = Convert.ToDouble(ViewBag.test1[24]);
-    double noKidIndex = Convert.ToDouble(ViewBag.test1[24]) - Convert.ToDouble(ViewBag.test1[25]);
-    double kidPercent = Math.Round((userKids / kidIndex) * 100, 2);
 
     //if( ViewBag.test2[30] == "DP02_0064E" || ViewBag.test2[30] == "DP02_0065E")
     //{
@@ -266,9 +272,8 @@
 </table>
 <br />
 <br />
-<a href="/Home/Index">Go back to your initial results</a>
-<form action="/Home/NewState">
-    <label>Change your state?</label>    <select name="stateid" id="stateidAJ">
+<form action="/Home/NewIncome">
+    <label>Change your state?</label>    <select name="stateid">
         <option value="01" name="stateid">Alabama</option>
         <option value="02" name="stateid">Alaska</option>
         <option value="04" name="stateid">Arizona</option>
@@ -320,5 +325,29 @@
         <option value="55" name="stateid">Wisconsin</option>
         <option value="56" name="stateid">Wyoming</option>
     </select>
-    <input type="submit" value="Change!" id="changeState" />
+    <label>Change your Income?</label>
+    <select name="incomerange">
+        <option name="incomerange" value="DP03_0052E"> Less than $10K
+
+        <option name="incomerange" value="DP03_0053E"> $10,000-$14,999
+
+        <option name="incomerange" value="DP03_0054E"> $15,000-$24,999
+
+        <option name="incomerange" value="DP03_0055E"> $25,000-$34,999
+
+        <option name="incomerange" value="DP03_0056E" checked> $35,000-$49,999
+
+        <option name="incomerange" value="DP03_0057E"> $50,000-$74,999
+
+        <option name="incomerange" value="DP03_0058E"> $75,000-$99,999
+
+        <option name="incomerange" value="DP03_0059E"> $100,000-$149,999
+
+        <option name="incomerange" value="DP03_0060E"> $150,000-$199,999
+
+        <option name="incomerange" value="DP03_0061E"> More than $200K +
+    </select>
+    <input type="submit" value="Change!" />
 </form>
+
+<a href="/Home/Index">Go back to your initial results</a>
