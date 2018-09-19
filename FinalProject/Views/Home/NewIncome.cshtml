@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "NewIncome";
+    ViewBag.Title = "Results";
 }
 <br />
 <style>
@@ -303,7 +303,8 @@
 <br />
 @ViewBag.HousingSuggestion
 
-
+<h3>@ViewBag.userData.name in @ViewBag.test1[0]</h3>
+@* beginning of new newstate info *@
 @* charts graphs *@
 <br />
 <ul class="list-inline" style="width: 2009px; padding-right:4%;">
@@ -324,7 +325,7 @@
         <div id="IncomechartContainer" style="height: 300px; width: 100%;"></div>
     </li>
 </ul>
-@* beginning of new newstate info *@
+@* Table info *@
 @{ double int1 = Convert.ToDouble(ViewBag.test1[1]);
     double int2 = Convert.ToDouble(ViewBag.test1[2]);
     double int3 = Convert.ToDouble(ViewBag.test2[27]);
@@ -389,7 +390,6 @@
     //}
 }
 
-<h3>@ViewBag.userData.name in @ViewBag.test1[0]</h3>
 
 <table class="table">
     <tr><th>Category</th><th>Your Info</th><th>Others Like You</th><th>Percentile You're In</th></tr>
