@@ -91,10 +91,10 @@ namespace FinalProject.Controllers
             apiRequest.UserAgent = "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
             HttpWebResponse apiResponse = (HttpWebResponse)apiRequest.GetResponse();
 
-            if (apiResponse.StatusCode == HttpStatusCode.OK) // (== 200) if we get status of 200, things are good.
+            if (apiResponse.StatusCode == HttpStatusCode.OK) 
             {
-                StreamReader responseData = new StreamReader(apiResponse.GetResponseStream());// use System.IO
-                string data = responseData.ReadToEnd(); //reads data from the response
+                StreamReader responseData = new StreamReader(apiResponse.GetResponseStream());
+                string data = responseData.ReadToEnd(); 
 
                 JArray jsonData = JArray.Parse(data);
 

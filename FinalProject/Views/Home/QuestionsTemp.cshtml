@@ -3,11 +3,8 @@
     ViewBag.Title = "QuestionsTemp";
 }
 <style>
-    body {
-        width: 100%;
-        height: 100%;
-        background-color:cornflowerblue;
-    }
+body { padding-top: 50px; padding-bottom: 20px; width: 100%; height: 100%; background-image: url('https://i.pinimg.com/originals/f1/63/11/f16311fd0c32786525f471c685bc516e.gif'); */ background-repeat: no-repeat; background-size: cover; background-position: top; }
+  
     .navbar {
         margin-bottom: 20px;
     }
@@ -20,15 +17,16 @@
         box-shadow: 10px 10px;
     }
     .move{
-        padding-left:3%;
+        /*padding-left:;*/
     }
 .jumbotron {width: 100%; height: 100%; background-image: url('https://png.pngtree.com/thumb_back/fh260/back_pic/00/09/35/00562e22c265465.jpg'); background-size: cover; }
 </style>
 <br/>
-<div class="container pop">
-    <img class="move center-block" src="https://png.pngtree.com/thumb_back/fh260/back_pic/00/09/35/00562e22c265465.jpg"/>
+<div class="container pop" style="width:80%;">
+    @*<img class="move center-block" src="https://png.pngtree.com/thumb_back/fh260/back_pic/00/09/35/00562e22c265465.jpg" />*@
+    @*<img class="move center-block" width="350px" height="350px" src="https://static.designboom.com/wp-content/uploads/2016/02/7d527134335649.56cdd96ba10eb.gif" />*@
 
-
+    <img class="move center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQazV8DTfXz-J5ngWskliacxQ_H-0LQo_sMtB4cRoazw4x2y9os9Q" />
     <form action="~/Input/SaveInput" class="text-center">
         <h3>Enter your Name</h3>
         <input type="text" ([A-Z][a-z]{1,}) name="name" pattern="[a-zA-Z]{0,}\s?[a-zA-z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?" required />
@@ -110,7 +108,7 @@
         </select>
 
         @*<h3>Enter your City</h3>
-        <input type="text" name="city" pattern="[a-zA-Z]+(?:[ '-][a-zA-Z]+)*" required />*@
+            <input type="text" name="city" pattern="[a-zA-Z]+(?:[ '-][a-zA-Z]+)*" required />*@
 
         <h3>Select Your Marital Status</h3>
         <input type="radio" name="maritalstatus" value="DP02_0010E" checked> Single<br>
@@ -118,10 +116,10 @@
         <input type="radio" name="maritalstatus" value="DP02_0010E">Divorced/Seperated
 
         @*<h3>Are you currently employed?</h3>
-        <select name="employed">
-            <option value="DP03_0005E">No</option>
-            <option value="DP03_0004E">Yes</option>
-        </select>*@
+            <select name="employed">
+                <option value="DP03_0005E">No</option>
+                <option value="DP03_0004E">Yes</option>
+            </select>*@
 
         <h3>Do you have children?</h3>
         <select name="haschildren">

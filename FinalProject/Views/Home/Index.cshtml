@@ -2,8 +2,173 @@
     ViewBag.Title = "Home Page";
 }
 
+<style>
+    body {
+        overflow-x: hidden;
+    }
+    .w3-border {
+        height: 5%;
+        width: 50%;
+        border: 0.1px solid gray;
+    }
 
+    .w3-green {
+        background-color: green;
+    }
 
+    .w3-red {
+        background-color: red;
+    }
+    ul, menu, dir {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: opx;
+    }
+</style>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript">
+
+    window.onload = function () {
+        var chart = new CanvasJS.Chart("SexchartContainer",
+            {
+                theme: "theme2",
+                title: {
+                    text: "Males and Females in the state of @ViewBag.test1[0]"
+                },
+                data: [
+                    {
+                        type: "pie",
+                        showInLegend: true,
+                        toolTipContent: "{y} - #percent %",
+                        yValueFormatString: "0.###",
+                        legendText: "{indexLabel}",
+                        dataPoints: [
+                            { y: @Convert.ToDouble(ViewBag.test1[1]), indexLabel: "Male" },
+                            { y: @Convert.ToDouble(ViewBag.test1[2]), indexLabel: "Female" },
+
+                        ]
+                    }
+                ]
+            });
+        chart.render();
+                var chart = new CanvasJS.Chart("AgechartContainer",
+            {
+                theme: "theme2",
+                title: {
+                    text: "Percentile of Age Groups in the state of @ViewBag.test1[0]"
+                },
+                data: [
+                    {
+                        type: "pie",
+                        showInLegend: true,
+                        toolTipContent: "{y} - #percent %",
+                        yValueFormatString: "0.###",
+                        legendText: "{indexLabel}",
+                        dataPoints: [
+                            { y: @ViewBag.test1[4], indexLabel: "25 to 34 years:" },
+                            { y: @ViewBag.test1[5], indexLabel: "35 to 44 years:" },
+                            { y: @ViewBag.test1[6], indexLabel: "45 to 54 years:" },
+                            { y: @ViewBag.test1[7], indexLabel: "55 to 59 years:" },
+                            { y: @ViewBag.test1[8], indexLabel: "60 to 64 years:" },
+                            { y: @ViewBag.test1[9], indexLabel: "65 to 74 years:" },
+                            { y: @ViewBag.test1[10], indexLabel: "65 to 74 years:" },
+                            { y: @ViewBag.test1[11], indexLabel: "85+:" },
+
+                        ]
+                    }
+                ]
+            });
+        chart.render();
+                var chart = new CanvasJS.Chart("IncomechartContainer",
+            {
+                theme: "theme2",
+                title: {
+                    text: "Income in the state of @ViewBag.test1[0]"
+                },
+                data: [
+                    {
+                        type: "pie",
+                        showInLegend: true,
+                        toolTipContent: "{y} - #percent %",
+                        yValueFormatString: "0.###",
+                        legendText: "{indexLabel}",
+                        dataPoints: [
+                            { y: @ViewBag.test1[12], indexLabel: "Less than $10,000" },
+                            { y: @ViewBag.test1[13], indexLabel: "$10,000 to $14,999" },
+                            { y: @ViewBag.test1[14], indexLabel: "$15,000 to $24,999" },
+                            { y: @ViewBag.test1[15], indexLabel: "$25,000 to $34,999" },
+                            { y: @ViewBag.test1[16], indexLabel: "$35,000 to 49,999" },
+                            { y: @ViewBag.test1[17], indexLabel: "$50,000 to $74,999" },
+                            { y: @ViewBag.test1[18], indexLabel: "$75,000 to $99,999" },
+                            { y: @ViewBag.test1[19], indexLabel: "$100,000 to $149,999" },
+                            { y: @ViewBag.test1[20], indexLabel: "$150,000 to $199,999" },
+                            { y: @ViewBag.test1[21], indexLabel: "$200,000 +" },
+                        ]
+                    }
+                ]
+            });
+        chart.render();
+        var chart = new CanvasJS.Chart("chartContainer1", {
+            animationEnabled: true,
+            title: {
+                text: "Number of iPhones Sold in Different Quarters"
+            },
+            axisX: {
+                minimum: new Date(2015, 01, 25),
+                maximum: new Date(2017, 02, 15),
+                valueFormatString: "MMM YY"
+            },
+            axisY: {
+                title: "Number of Sales",
+                titleFontColor: "#4F81BC",
+                suffix: "mn"
+            },
+            data: [{
+                indexLabelFontColor: "darkSlateGray",
+                name: "views",
+                type: "area",
+                yValueFormatString: "#,##0.0mn",
+                dataPoints: [
+                    { x: new Date(2015, 02, 1),/*where the data from the api can go*/ y: 74.4, label: "Michigan"/*potential way to compare the states or counties*/ },
+                    { x: new Date(2015, 05, 1), y: 61.1, label: "Q2-2015" },
+                    { x: new Date(2015, 08, 1), y: 47.0, label: "Q3-2015" },
+                    { x: new Date(2015, 11, 1), y: 48.0, label: "Q4-2015" },
+                    { x: new Date(2016, 02, 1), y: 74.8, label: "Q1-2016" },
+                    { x: new Date(2016, 05, 1), y: 51.1, label: "Q2-2016" },
+                    { x: new Date(2016, 08, 1), y: 40.4, label: "Q3-2016" },
+                    { x: new Date(2016, 11, 1), y: 45.5, label: "Q4-2016" },
+                    { x: new Date(2017, 02, 1), y: 78.3, label: "Q1-2017", indexLabel: "Highest", markerColor: "red" }
+                ]
+            }]
+        });
+        chart.render();
+    }
+</script>
+<br />
+<br />
+<ul class="list-inline" style="width: 2009px; padding-right:4%;">
+    <li style="width:380px; ">
+        <img class="center-block" style="width:80px; height:100px;" src="https://png2.kisspng.com/20180309/qke/kisspng-old-age-download-icon-help-the-old-man-across-the-street-5aa29d192e6bc6.8517958515206064891901.png" />
+        <hr style="width:40%; border:1px solid; @*text-align:center;*@" />
+        <div id="AgechartContainer" style="height: 300px; width: 100%;"></div>
+    </li>
+<li style="width:380px;  ">
+    <img class="center-block" style="width:80px; height:80px;" src="https://www.shareicon.net/download/2016/07/30/804328_man_512x512.png" />
+    <hr style="width:40%; border:1px solid; @*text-align:center;*@" />
+    <div id="SexchartContainer" style="height: 300px; width: 100%;"></div>
+
+</li>
+<li style="width:380px; ">
+    <img class="center-block"  style="width:80px; height:110px;" src="http://bankhelpline.com/img/save.png" />
+    <hr style="width:40%; border:1px solid; @*text-align:center;*@" />
+    <div id="IncomechartContainer" style="height: 300px; width: 100%;"></div>
+</li>
+</ul>
+<br />
 @*<ul>
         <li>Total Male: @ViewBag.test1[1]</li>
         <li>Total Female: @ViewBag.test1[2]</li>
@@ -181,7 +346,9 @@
     </tr>
 </table>
 <br />
+
 <form action="/Home/NewIncome">
+
     <label>Change your state?</label>    <select name="stateid">
         <option value="01" name="stateid">Alabama</option>
         <option value="02" name="stateid">Alaska</option>
@@ -258,3 +425,4 @@
     </select>
     <input type="submit" value="Change!" />
 </form>
+
